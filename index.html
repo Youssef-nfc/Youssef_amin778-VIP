@@ -272,6 +272,17 @@ body {
 }
 
 .ltr { direction: ltr; display: inline-block; }
+
+/* Image placeholder styling */
+.img-placeholder {
+  background: rgba(35, 20, 13, 0.6);
+  border: 2px dashed rgba(212, 168, 67, 0.3);
+  transition: all 0.3s ease;
+}
+.img-placeholder:hover {
+  border-color: rgba(212, 168, 67, 0.8);
+  background: rgba(35, 20, 13, 0.8);
+}
 </style>
 </head>
 <body>
@@ -283,7 +294,7 @@ body {
 <div class="relative z-10 min-h-screen flex flex-col justify-between">
 
   <!-- ===== HERO SECTION ===== -->
-  <header class="pt-8 pb-10 px-4 sm:px-6">
+  <header class="pt-8 pb-6 px-4 sm:px-6">
     <!-- NFC Badge -->
     <div class="flex justify-center mb-6">
       <div class="nfc-badge text-gold-primary font-tajawal font-bold">
@@ -300,7 +311,7 @@ body {
         <div class="absolute bottom-3 right-3 w-6 h-6 border-b-2 border-r-2 border-gold-primary/40 rounded-br-md"></div>
         <div class="absolute bottom-3 left-3 w-6 h-6 border-b-2 border-l-2 border-gold-primary/40 rounded-bl-md"></div>
 
-        <!-- Avatar -->
+        <!-- Avatar / Logo -->
         <div class="flex justify-center mb-5">
           <div class="avatar-ring">
             <div class="w-28 h-28 rounded-full bg-gradient-to-br from-wood-light to-wood-dark flex items-center justify-center border-4 border-wood-dark shadow-xl">
@@ -309,7 +320,7 @@ body {
           </div>
         </div>
 
-        <!-- Name & Bio -->
+        <!-- Name & Bio / الشعار -->
         <h1 class="font-tajawal text-2xl sm:text-3xl font-black gold-text-gradient mb-2 tracking-wide">
           يوسف الأمين
         </h1>
@@ -322,7 +333,7 @@ body {
         </div>
 
         <!-- Primary Action Buttons -->
-        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <div class="flex flex-col sm:flex-row gap-3 justify-center mb-4">
           <button onclick="downloadVCard()" class="btn-gold px-6 py-3.5 rounded-xl font-tajawal text-sm flex items-center justify-center gap-2">
             <i class="fa-solid fa-address-card text-base"></i>
             <span>حفظ جهة الاتصال</span>
@@ -332,6 +343,17 @@ body {
             <span>واتساب مباشر</span>
           </a>
         </div>
+
+        <!-- ===== 1. أيقونة بزر عرض الفيديو (تحت اللوغو والشعار) ===== -->
+        <div class="pt-2 border-t border-gold-primary/15">
+          <button onclick="openVideoModal()" class="w-full btn-gold py-3 px-4 rounded-xl font-tajawal text-sm flex items-center justify-center gap-3 shadow-lg">
+            <span class="w-7 h-7 rounded-full bg-wood-dark/40 flex items-center justify-center text-gold-light">
+              <i class="fa-solid fa-play text-xs pr-0.5"></i>
+            </span>
+            <span>عرض الفيديو التقديمي</span>
+          </button>
+        </div>
+
       </div>
     </div>
 
@@ -354,6 +376,53 @@ body {
       </div>
     </div>
   </header>
+
+  <!-- ===== 2. قسم الصور البارزة (الصورتان الفارغتان) ===== -->
+  <section class="px-4 sm:px-6 pb-8">
+    <div class="max-w-md mx-auto">
+      <div class="text-center mb-4">
+        <p class="font-cinzel text-xs tracking-[0.2em] text-gold-primary/70 mb-1">FEATURED SHOWCASE</p>
+        <h3 class="font-tajawal text-lg font-bold gold-text-gradient">العروض المميزة</h3>
+        <div class="section-divider mt-2 max-w-[120px] mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <!-- صورة فارغة 1 -->
+        <div onclick="openGalleryAt(0)" class="img-placeholder aspect-video rounded-2xl flex flex-col items-center justify-center cursor-pointer p-4 text-center group">
+          <i class="fa-regular fa-image text-3xl text-gold-primary/50 group-hover:text-gold-primary group-hover:scale-110 transition-all mb-2"></i>
+          <span class="text-xs text-gold-pale/70 font-bold group-hover:text-gold-light">الصورة الأولى (إعلانية)</span>
+        </div>
+        <!-- صورة فارغة 2 -->
+        <div onclick="openGalleryAt(1)" class="img-placeholder aspect-video rounded-2xl flex flex-col items-center justify-center cursor-pointer p-4 text-center group">
+          <i class="fa-regular fa-image text-3xl text-gold-primary/50 group-hover:text-gold-primary group-hover:scale-110 transition-all mb-2"></i>
+          <span class="text-xs text-gold-pale/70 font-bold group-hover:text-gold-light">الصورة الثانية (إعلانية)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. قسم معرض الصور الـ 10 ===== -->
+  <section class="px-4 sm:px-6 pb-10">
+    <div class="max-w-md mx-auto">
+      <div class="glass-panel rounded-3xl p-6 text-center">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h3 class="font-tajawal text-lg font-bold gold-text-gradient text-right">معرض الصور</h3>
+            <p class="text-[11px] text-gold-pale/60 text-right">استعرض 10 صور عالية الجودة</p>
+          </div>
+          <button onclick="openGalleryAt(0)" class="btn-gold px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+            <i class="fa-solid fa-images"></i>
+            <span>عرض معرض الصور</span>
+          </button>
+        </div>
+
+        <!-- شبكة المصغرات الـ 10 صور -->
+        <div class="grid grid-cols-5 gap-2 mt-3" id="gallery-thumbnails">
+          <!-- الكود سيوفر 10 بلاصات د الصور اتوماتيكياً عبر JavaScript -->
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ===== BUNDLE SHOWCASE ===== -->
   <section class="px-4 sm:px-6 pb-10">
@@ -491,9 +560,62 @@ body {
 
 </div>
 
-<!-- ===== MODALS (PROMPT PAGES) ===== -->
+<!-- ===== MODAL 1: نافذة الفيديو ===== -->
+<div id="modal-video" class="modal-overlay" onclick="closeModalOnOverlay(event, 'video')">
+  <div class="modal-content p-4 sm:p-6 relative">
+    <button onclick="closeModal('video')" class="absolute top-3 left-3 w-8 h-8 rounded-full bg-gold-primary/10 flex items-center justify-center text-gold-primary hover:bg-gold-primary/20 z-10">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <h3 class="font-tajawal text-lg font-bold gold-text-gradient mb-3 text-center">الفيديو التقديمي</h3>
+    <!-- مشغل الفيديو -->
+    <div class="aspect-video w-full rounded-2xl overflow-hidden bg-black flex items-center justify-center relative border border-gold-primary/30">
+      <!-- تقدر تبدل هاد الفيديو برابط يوتيوب أو فيديو مباشر mp4 -->
+      <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
 
-<!-- 1. Modal: من نحن -->
+<!-- ===== MODAL 2: معرض الصور التفاعلي (LIGHTBOX / GALLERY) ===== -->
+<div id="modal-gallery" class="modal-overlay" onclick="closeModalOnOverlay(event, 'gallery')">
+  <div class="relative w-full max-w-4xl h-full max-h-[90vh] flex flex-col items-center justify-between p-2 sm:p-4">
+    
+    <!-- شريط التحكم الفوقاني -->
+    <div class="w-full flex justify-between items-center bg-wood-dark/80 backdrop-blur-md p-3 rounded-2xl border border-gold-primary/30 z-20">
+      <span id="gallery-counter" class="font-tajawal text-xs sm:text-sm text-gold-light font-bold">صورة 1 من 10</span>
+      <div class="flex gap-3">
+        <!-- أزرار التكبير Zoom -->
+        <button onclick="zoomImage(0.2)" class="text-gold-primary hover:text-gold-light p-1"><i class="fa-solid fa-magnifying-glass-plus text-base"></i></button>
+        <button onclick="zoomImage(-0.2)" class="text-gold-primary hover:text-gold-light p-1"><i class="fa-solid fa-magnifying-glass-minus text-base"></i></button>
+        <button onclick="resetZoom()" class="text-gold-primary hover:text-gold-light p-1 text-xs font-bold">إعادة</button>
+        <button onclick="closeModal('gallery')" class="text-gold-primary hover:text-gold-light p-1 pr-2"><i class="fa-solid fa-xmark text-lg"></i></button>
+      </div>
+    </div>
+
+    <!-- منطقة عرض الصورة الرئيسية -->
+    <div class="relative flex-1 w-full flex items-center justify-center overflow-hidden my-2">
+      <!-- أزرار التنقل بين الصور -->
+      <button onclick="prevImage()" class="absolute right-2 z-20 w-10 h-10 rounded-full bg-wood-dark/70 border border-gold-primary/40 text-gold-primary flex items-center justify-center hover:bg-gold-primary/20">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+      
+      <div class="w-full h-full flex items-center justify-center overflow-auto p-2">
+        <img id="gallery-current-img" src="" alt="معرض الصور" class="max-h-full max-w-full object-contain rounded-xl transition-transform duration-200" style="transform: scale(1);">
+      </div>
+
+      <button onclick="nextImage()" class="absolute left-2 z-20 w-10 h-10 rounded-full bg-wood-dark/70 border border-gold-primary/40 text-gold-primary flex items-center justify-center hover:bg-gold-primary/20">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+    </div>
+
+    <!-- الشريط السفلي للصور المصغرة -->
+    <div class="w-full bg-wood-dark/80 backdrop-blur-md p-2 rounded-2xl border border-gold-primary/30 overflow-x-auto flex gap-2 justify-center" id="gallery-bottom-bar">
+      <!-- يتم ملؤها عبر JavaScript -->
+    </div>
+
+  </div>
+</div>
+
+<!-- باقي النوافذ المنبثقة (من نحن / اتصل بنا / شروط الاستخدام) -->
 <div id="modal-about" class="modal-overlay" onclick="closeModalOnOverlay(event, 'about')">
   <div class="modal-content p-6 sm:p-8 relative">
     <button onclick="closeModal('about')" class="absolute top-4 left-4 w-8 h-8 rounded-full bg-gold-primary/10 flex items-center justify-center text-gold-primary hover:bg-gold-primary/20">
@@ -506,17 +628,11 @@ body {
       <h3 class="font-tajawal text-xl font-bold gold-text-gradient">من نحن</h3>
     </div>
     <div class="space-y-4 text-gold-pale/90 text-sm leading-relaxed font-tajawal text-justify">
-      <p>
-        مرحباً بكم! نحن متخصصون في تقديم أحدث الحلول الرقمية والتقنيات التفاعلية المعتمدة على شرائح NFC بالظهور العصري والفاخر. 
-      </p>
-      <p>
-        هدفنا هو مساعدة المهنيين، التجار، وأصحاب المشاريع في المغرب على مواكبة التحول الرقمي وتسهيل عملية التواصل وبناء العلاقات المهنية بأسلوب مبتكر يترك انطباعاً راقياً لدى العملاء.
-      </p>
+      <p>مرحباً بكم! نحن متخصصون في تقديم أحدث الحلول الرقمية والتقنيات التفاعلية المعتمدة على شرائح NFC بالظهور العصري والفاخر.</p>
     </div>
   </div>
 </div>
 
-<!-- 2. Modal: اتصل بنا -->
 <div id="modal-contact" class="modal-overlay" onclick="closeModalOnOverlay(event, 'contact')">
   <div class="modal-content p-6 sm:p-8 relative">
     <button onclick="closeModal('contact')" class="absolute top-4 left-4 w-8 h-8 rounded-full bg-gold-primary/10 flex items-center justify-center text-gold-primary hover:bg-gold-primary/20">
@@ -527,62 +643,132 @@ body {
         <i class="fa-solid fa-headset text-wood-dark text-xl"></i>
       </div>
       <h3 class="font-tajawal text-xl font-bold gold-text-gradient">اتصل بنا</h3>
-      <p class="text-gold-pale/60 text-xs mt-1">نحن هنا لخدمتك وإجابة جميع استفساراتك</p>
     </div>
     <div class="space-y-3">
-      <a href="https://wa.me/212776366828" target="_blank" class="glass-card rounded-xl p-4 flex items-center gap-4 hover:border-gold-primary/50 transition-all">
+      <a href="https://wa.me/212776366828" target="_blank" class="glass-card rounded-xl p-4 flex items-center gap-4">
         <div class="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center text-green-400">
           <i class="fa-brands fa-whatsapp text-lg"></i>
         </div>
-        <div class="flex-1">
+        <div>
           <p class="font-tajawal font-bold text-gold-light text-sm">مراسلة عبر الواتساب</p>
           <p class="text-gold-pale/60 text-xs ltr">+212 776-366828</p>
-        </div>
-      </a>
-      <a href="tel:+212638571166" class="glass-card rounded-xl p-4 flex items-center gap-4 hover:border-gold-primary/50 transition-all">
-        <div class="w-10 h-10 rounded-xl bg-gold-primary/20 flex items-center justify-center text-gold-primary">
-          <i class="fa-solid fa-phone text-base"></i>
-        </div>
-        <div class="flex-1">
-          <p class="font-tajawal font-bold text-gold-light text-sm">الاتصال المباشر</p>
-          <p class="text-gold-pale/60 text-xs ltr">+212 638-571166</p>
         </div>
       </a>
     </div>
   </div>
 </div>
 
-<!-- 3. Modal: شروط الاستخدام -->
 <div id="modal-terms" class="modal-overlay" onclick="closeModalOnOverlay(event, 'terms')">
   <div class="modal-content p-6 sm:p-8 relative">
     <button onclick="closeModal('terms')" class="absolute top-4 left-4 w-8 h-8 rounded-full bg-gold-primary/10 flex items-center justify-center text-gold-primary hover:bg-gold-primary/20">
       <i class="fa-solid fa-xmark"></i>
     </button>
     <div class="text-center mb-6">
-      <div class="w-14 h-14 rounded-2xl gold-bg-gradient flex items-center justify-center mx-auto mb-3 shadow-lg">
-        <i class="fa-solid fa-file-contract text-wood-dark text-xl"></i>
-      </div>
       <h3 class="font-tajawal text-xl font-bold gold-text-gradient">شروط الاستخدام والخصوصية</h3>
     </div>
-    <div class="space-y-3 text-gold-pale/80 text-xs sm:text-sm leading-relaxed font-tajawal">
-      <p class="flex items-start gap-2">
-        <i class="fa-solid fa-circle-check text-gold-primary mt-1"></i>
-        <span>جميع البيانات والمعلومات المدخلة في البطاقات الإلكترونية يتم حمايتها وضمان خصوصيتها بالكامل.</span>
-      </p>
-      <p class="flex items-start gap-2">
-        <i class="fa-solid fa-circle-check text-gold-primary mt-1"></i>
-        <span>يحق للعميل طلب تعديل أو تحديث روابِطه ومعلوماته في أي وقت وفق خدمة الدعم المتاحة.</span>
-      </p>
-      <p class="flex items-start gap-2">
-        <i class="fa-solid fa-circle-check text-gold-primary mt-1"></i>
-        <span>الرقاقات المستخدمة أصيلة وتم اختبار جودتها وسرعة استجابتها مع مختلف الأجهزة الذكية.</span>
-      </p>
-    </div>
+    <p class="text-gold-pale/80 text-xs sm:text-sm">جميع البيانات والمعلومات المدخلة حصرية ومحمية بالكامل.</p>
   </div>
 </div>
 
 <!-- ===== SCRIPTS ===== -->
 <script>
+// قائمة الـ 10 صور (روابط للتجربة، تقدر تبدلهوم بأي روابط صور بغيتي)
+const galleryImages = [
+  "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+  "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800&q=80",
+  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+  "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=800&q=80",
+  "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=800&q=80",
+  "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=800&q=80",
+  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
+  "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80"
+];
+
+let currentImgIndex = 0;
+let currentZoom = 1;
+
+// توليد مصغرات الصور الـ 10 فالموقع وفي المعرض
+function initGalleryThumbnails() {
+  const container = document.getElementById('gallery-thumbnails');
+  const bottomBar = document.getElementById('gallery-bottom-bar');
+  
+  container.innerHTML = '';
+  bottomBar.innerHTML = '';
+
+  galleryImages.forEach((imgUrl, index) => {
+    // 1. المصغرات فـ الصفحة
+    const thumb = document.createElement('div');
+    thumb.className = "aspect-square rounded-lg overflow-hidden border border-gold-primary/30 cursor-pointer hover:border-gold-primary hover:scale-105 transition-all";
+    thumb.onclick = () => openGalleryAt(index);
+    thumb.innerHTML = `<img src="${imgUrl}" class="w-full h-full object-cover">`;
+    container.appendChild(thumb);
+
+    // 2. المصغرات فـ المعرض السفلي
+    const barThumb = document.createElement('div');
+    barThumb.className = `w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 cursor-pointer ${index === currentImgIndex ? 'border-gold-primary' : 'border-transparent opacity-60'}`;
+    barThumb.id = `bar-thumb-${index}`;
+    barThumb.onclick = () => showImage(index);
+    barThumb.innerHTML = `<img src="${imgUrl}" class="w-full h-full object-cover">`;
+    bottomBar.appendChild(barThumb);
+  });
+}
+
+function openVideoModal() {
+  openModal('video');
+}
+
+function openGalleryAt(index) {
+  currentImgIndex = index;
+  openModal('gallery');
+  showImage(index);
+}
+
+function showImage(index) {
+  currentImgIndex = index;
+  resetZoom();
+  const imgElement = document.getElementById('gallery-current-img');
+  imgElement.src = galleryImages[index];
+  
+  document.getElementById('gallery-counter').innerText = `صورة ${index + 1} من ${galleryImages.length}`;
+
+  // تحديث الحدود الذهبية للمصغرات فـ الأسفل
+  galleryImages.forEach((_, i) => {
+    const el = document.getElementById(`bar-thumb-${i}`);
+    if(el) {
+      if(i === index) {
+        el.classList.add('border-gold-primary');
+        el.classList.remove('border-transparent', 'opacity-60');
+      } else {
+        el.classList.remove('border-gold-primary');
+        el.classList.add('border-transparent', 'opacity-60');
+      }
+    }
+  });
+}
+
+function nextImage() {
+  currentImgIndex = (currentImgIndex + 1) % galleryImages.length;
+  showImage(currentImgIndex);
+}
+
+function prevImage() {
+  currentImgIndex = (currentImgIndex - 1 + galleryImages.length) % galleryImages.length;
+  showImage(currentImgIndex);
+}
+
+function zoomImage(amount) {
+  currentZoom = Math.max(0.5, Math.min(3, currentZoom + amount));
+  document.getElementById('gallery-current-img').style.transform = `scale(${currentZoom})`;
+}
+
+function resetZoom() {
+  currentZoom = 1;
+  document.getElementById('gallery-current-img').style.transform = `scale(1)`;
+}
+
+// التحكم بالـ Modals
 function openModal(id) {
   const modal = document.getElementById('modal-' + id);
   if(modal) {
@@ -619,12 +805,7 @@ function downloadVCard() {
     'BEGIN:VCARD',
     'VERSION:3.0',
     'FN:يوسف الأمين',
-    'N:الأمين;يوسف;;;',
-    'TITLE:مستشار الحلول الرقمية وأنظمة NFC الفاخرة',
     'TEL;TYPE=CELL:+212638571166',
-    'TEL;TYPE=WHATSAPP:+212776366828',
-    'ADR;TYPE=WORK:;;Agadir;;;Morocco',
-    'NOTE:خبير حلول NFC والتواصل الرقمي',
     'END:VCARD'
   ].join('\n');
 
@@ -638,6 +819,11 @@ function downloadVCard() {
   document.body.removeChild(link);
   URL.revokeObjectURL(url);
 }
+
+// التشغيل عند تحميل الصفحة
+window.onload = function() {
+  initGalleryThumbnails();
+};
 </script>
 
 </body>

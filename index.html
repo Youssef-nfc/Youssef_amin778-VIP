@@ -9,13 +9,13 @@
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;600;700&display=swap');
 
         :root {
-            --dark-bg: #142026;
-            --dark-bg-light: #1d2f38;
-            --gold: #c9a84c;
-            --gold-light: #e0c878;
-            --gold-dark: #a0853a;
-            --cream: #f5f0e1;
-            --text-muted: #b8b8b8;
+            --dark-bg: #0b0b0b;
+            --dark-bg-light: #161616;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-dark: #aa820a;
+            --cream: #f8f5ee;
+            --text-muted: #a0a0a0;
         }
 
         * {
@@ -30,7 +30,7 @@
 
         body {
             min-height: 100vh;
-            background: linear-gradient(180deg, #0d161b 0%, #142026 50%, #0d161b 100%);
+            background: #050505;
             display: flex;
             justify-content: center;
             padding: 20px 12px;
@@ -42,13 +42,11 @@
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background:
-                radial-gradient(circle at 20% 30%, rgba(201, 168, 76, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(201, 168, 76, 0.04) 0%, transparent 50%);
+                radial-gradient(circle at 50% 20%, rgba(212,175,55,0.08) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(212,175,55,0.04) 0%, transparent 50%);
             pointer-events: none;
             z-index: 0;
         }
@@ -59,9 +57,9 @@
             max-width: 420px;
             border-radius: 24px;
             box-shadow:
-                0 25px 60px rgba(0,0,0,0.5),
-                0 0 0 1px rgba(201, 168, 76, 0.15) inset,
-                0 0 40px rgba(201, 168, 76, 0.05) inset;
+                0 25px 60px rgba(0,0,0,0.8),
+                0 0 0 1px rgba(212,175,55,0.25) inset,
+                0 0 30px rgba(212,175,55,0.08) inset;
             overflow: hidden;
             text-align: center;
             position: relative;
@@ -74,7 +72,6 @@
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        /* ===== DECO TOP ===== */
         .deco-top {
             position: relative;
             height: 60px;
@@ -83,42 +80,17 @@
         .deco-top::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 3px;
             background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
         }
-        .deco-top::after {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 40px;
-            border: 2px solid var(--gold);
-            border-bottom: none;
-            border-radius: 60px 60px 0 0;
-            opacity: 0.4;
-        }
-        .deco-line {
-            position: absolute;
-            top: 18px;
-            left: 10%;
-            right: 10%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
-        }
 
-        /* ===== LOGO ===== */
         .logo-section {
             padding: 10px 20px 15px;
             position: relative;
         }
         .logo-circle {
-            width: 90px;
-            height: 90px;
+            width: 100px; height: 100px;
             margin: 0 auto 12px;
             border: 2px solid var(--gold);
             border-radius: 50%;
@@ -126,18 +98,17 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            position: relative;
-            background: rgba(201, 168, 76, 0.05);
-            box-shadow: 0 0 30px rgba(201, 168, 76, 0.1);
+            background: rgba(212,175,55,0.05);
+            box-shadow: 0 0 25px rgba(212,175,55,0.15);
         }
         .logo-circle .crown {
-            font-size: 14px;
+            font-size: 16px;
             color: var(--gold);
             margin-bottom: 2px;
         }
         .logo-circle .num {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 36px;
+            font-size: 38px;
             font-weight: 700;
             color: var(--gold);
             line-height: 1;
@@ -151,9 +122,7 @@
             margin-top: 8px;
         }
         .brand-name .line {
-            flex: 1;
-            max-width: 60px;
-            height: 1px;
+            flex: 1; max-width: 60px; height: 1px;
             background: linear-gradient(90deg, transparent, var(--gold-dark));
         }
         .brand-name .line-left {
@@ -161,7 +130,7 @@
         }
         .brand-name span {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--gold-light);
             font-weight: 600;
             letter-spacing: 2px;
@@ -171,25 +140,24 @@
             font-size: 0.9rem;
         }
         .brand-ar {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--gold);
             margin-top: 4px;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 1px;
         }
 
-        /* ===== SERVICES ===== */
         .services {
             display: flex;
             justify-content: center;
             gap: 8px;
             padding: 0 20px;
-            margin: 18px 0 10px;
+            margin: 15px 0 10px;
             flex-wrap: wrap;
         }
         .service-tag {
-            background: rgba(201, 168, 76, 0.08);
-            border: 1px solid rgba(201, 168, 76, 0.2);
+            background: rgba(212,175,55,0.08);
+            border: 1px solid rgba(212,175,55,0.25);
             color: var(--gold-light);
             padding: 6px 14px;
             border-radius: 20px;
@@ -197,12 +165,10 @@
             font-weight: 500;
         }
 
-        /* ===== LUXURY GALLERY ===== */
         .gallery-section {
-            margin: 28px 0;
+            margin: 25px 0;
             padding: 0 16px;
         }
-
         .gallery-header {
             display: flex;
             align-items: center;
@@ -211,231 +177,222 @@
             padding: 0 4px;
         }
         .gallery-header .h-line {
-            flex: 1;
-            height: 1px;
+            flex: 1; height: 1px;
             background: linear-gradient(90deg, var(--gold-dark), transparent);
         }
         .gallery-header .h-line-left {
             background: linear-gradient(90deg, transparent, var(--gold-dark));
         }
-        .gallery-header-text {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2px;
-        }
         .gallery-header-text .main {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: var(--gold-light);
             font-weight: 600;
             letter-spacing: 2px;
         }
         .gallery-header-text .sub {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
-            letter-spacing: 1px;
         }
 
-        /* Slider Frame */
-        .slider-frame {
+        .hero-slider {
             position: relative;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow:
-                0 12px 40px rgba(0,0,0,0.4),
-                0 0 0 1px rgba(201, 168, 76, 0.15),
-                inset 0 0 30px rgba(0,0,0,0.2);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,175,55,0.2);
+            margin-bottom: 14px;
         }
-
-        .slider-container {
+        .hero-container {
             position: relative;
             width: 100%;
             overflow: hidden;
             touch-action: pan-y;
             cursor: grab;
         }
-        .slider-container:active {
-            cursor: grabbing;
-        }
-
-        .slider-track {
+        .hero-track {
             display: flex;
             transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-            will-change: transform;
         }
-
-        .slide {
+        .hero-slide {
             min-width: 100%;
-            position: relative;
             aspect-ratio: 4 / 3;
             overflow: hidden;
+            cursor: pointer;
         }
-
-        .slide img {
-            width: 100%;
-            height: 100%;
+        .hero-slide img {
+            width: 100%; height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.7s ease;
+            transition: transform 0.5s ease;
         }
-        .slide:hover img, .slide:active img {
-            transform: scale(1.05);
-        }
+        .hero-slide:hover img { transform: scale(1.05); }
 
-        /* Elegant overlay */
-        .slide-overlay {
+        .hero-counter {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 50px 20px 18px;
-            background: linear-gradient(transparent 0%, rgba(13, 22, 27, 0.7) 60%, rgba(13, 22, 27, 0.95) 100%);
-            text-align: center;
-            transition: all 0.4s ease;
-        }
-
-        .slide-overlay .cat {
-            font-size: 0.68rem;
-            color: var(--gold);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-            opacity: 0.9;
-        }
-        .slide-overlay .title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            color: var(--cream);
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-        .slide-overlay .divider-small {
-            width: 30px;
-            height: 1px;
-            background: var(--gold);
-            margin: 8px auto 0;
-            opacity: 0.6;
-        }
-
-        /* Arrows - minimal elegant */
-        .slider-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: rgba(13, 22, 27, 0.6);
-            border: 1px solid rgba(201, 168, 76, 0.3);
-            color: var(--gold-light);
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 3;
+            top: 14px; right: 14px;
+            background: rgba(10,10,10,0.7);
             backdrop-filter: blur(8px);
-            transition: all 0.3s ease;
-            opacity: 0;
-        }
-        .slider-frame:hover .slider-arrow,
-        .slider-frame:active .slider-arrow {
-            opacity: 1;
-        }
-        .slider-arrow:hover {
-            background: rgba(201, 168, 76, 0.2);
-            border-color: var(--gold);
-            transform: translateY(-50%) scale(1.1);
-        }
-        .slider-arrow.prev { left: 12px; }
-        .slider-arrow.next { right: 12px; }
-
-        /* Counter */
-        .slide-counter {
-            position: absolute;
-            top: 14px;
-            right: 14px;
-            background: rgba(13, 22, 27, 0.6);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(201, 168, 76, 0.2);
+            border: 1px solid rgba(212,175,55,0.3);
             color: var(--gold-light);
             padding: 4px 12px;
             border-radius: 20px;
-            font-size: 0.72rem;
+            font-size: 0.75rem;
             font-family: 'Cormorant Garamond', serif;
             letter-spacing: 2px;
             z-index: 3;
         }
-
-        /* Dots - luxury style */
-        .slider-dots {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin-top: 16px;
-        }
-        .dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: rgba(201, 168, 76, 0.2);
-            border: none;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            padding: 0;
-            position: relative;
-        }
-        .dot::after {
-            content: '';
+        .hero-arrow {
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 14px;
-            height: 14px;
+            transform: translateY(-50%);
+            width: 38px; height: 38px;
             border-radius: 50%;
-            border: 1px solid transparent;
-            transition: all 0.4s ease;
-        }
-        .dot.active {
-            background: var(--gold);
-            width: 28px;
-            border-radius: 3px;
-            box-shadow: 0 0 12px rgba(201, 168, 76, 0.4);
-        }
-        .dot.active::after {
-            border-color: rgba(201, 168, 76, 0.3);
-        }
-
-        /* ===== DIVIDER ===== */
-        .divider {
+            background: rgba(10,10,10,0.7);
+            border: 1px solid rgba(212,175,55,0.3);
+            color: var(--gold-light);
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 0 30px;
-            margin: 22px 0;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 3;
+            transition: all 0.3s ease;
         }
-        .divider-line {
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+        .hero-arrow.prev { left: 12px; }
+        .hero-arrow.next { right: 12px; }
+
+        .thumb-strip {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 4px 2px 12px;
+            scrollbar-width: none;
         }
-        .divider-dot {
-            width: 5px;
-            height: 5px;
-            background: var(--gold);
-            border-radius: 50%;
-            box-shadow: 0 0 8px rgba(201, 168, 76, 0.4);
+        .thumb-strip::-webkit-scrollbar { display: none; }
+        .thumb {
+            flex: 0 0 72px;
+            height: 72px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            opacity: 0.6;
+        }
+        .thumb.active {
+            border-color: var(--gold);
+            opacity: 1;
+            box-shadow: 0 0 12px rgba(212,175,55,0.4);
+        }
+        .thumb img {
+            width: 100%; height: 100%;
+            object-fit: cover;
         }
 
-        /* ===== BUTTONS ===== */
+        .view-all-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(212,175,55,0.08);
+            border: 1px solid rgba(212,175,55,0.3);
+            color: var(--gold);
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: all 0.3s ease;
+        }
+        .view-all-btn:hover {
+            background: rgba(212,175,55,0.2);
+            border-color: var(--gold);
+        }
+
+        #galleryModal {
+            display: none;
+            position: fixed;
+            z-index: 9998;
+            inset: 0;
+            background: rgba(5,5,5,0.98);
+            backdrop-filter: blur(15px);
+            flex-direction: column;
+        }
+        #galleryModal.open { display: flex; }
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(212,175,55,0.2);
+        }
+        .modal-header h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--gold-light);
+        }
+        .modal-close {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: rgba(212,175,55,0.1);
+            border: 1px solid rgba(212,175,55,0.3);
+            color: var(--gold);
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .modal-grid {
+            flex: 1;
+            overflow-y: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 16px;
+        }
+        .modal-item {
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid rgba(212,175,55,0.15);
+        }
+        .modal-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            justify-content: center;
+            align-items: center;
+        }
+        #lightbox.open { display: flex; }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(212,175,55,0.2);
+        }
+        #lightbox-close {
+            position: absolute;
+            top: 16px; right: 16px;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: rgba(212,175,55,0.1);
+            border: 1px solid rgba(212,175,55,0.3);
+            color: var(--gold);
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
         .action-btns {
             display: flex;
             gap: 12px;
             padding: 0 20px;
-            margin-bottom: 22px;
+            margin: 20px 0;
         }
         .btn {
             flex: 1;
@@ -448,270 +405,72 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
         }
         .btn-gold {
             background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
-            color: var(--dark-bg);
-            box-shadow: 0 6px 20px rgba(201, 168, 76, 0.3);
-        }
-        .btn-gold:hover, .btn-gold:active {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 28px rgba(201, 168, 76, 0.45);
+            color: #000;
+            box-shadow: 0 6px 20px rgba(212,175,55,0.3);
         }
         .btn-outline {
             background: transparent;
             color: var(--gold);
             border: 1.5px solid var(--gold-dark);
         }
-        .btn-outline:hover, .btn-outline:active {
-            background: rgba(201, 168, 76, 0.08);
-            border-color: var(--gold);
-        }
 
-        /* ===== INFO CARDS ===== */
-        .info-section {
-            padding: 0 20px;
-            margin-bottom: 22px;
-        }
+        .info-section { padding: 0 20px; margin-bottom: 20px; }
         .info-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(201, 168, 76, 0.12);
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(212,175,55,0.15);
             border-radius: 16px;
-            padding: 16px;
+            padding: 14px;
             margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 14px;
             text-align: right;
-            transition: all 0.3s ease;
-        }
-        .info-card:hover {
-            background: rgba(201, 168, 76, 0.05);
-            border-color: rgba(201, 168, 76, 0.25);
-            transform: translateX(-4px);
         }
         .info-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-            background: rgba(201, 168, 76, 0.1) 
-            border: 1px solid rgba(201, 168, 76, 0.2);
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            background: rgba(212,175,55,0.1);
+            border: 1px solid rgba(212,175,55,0.2);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--gold);
-            font-size: 1.1rem;
-            flex-shrink: 0;
         }
-        .info-content { flex: 1; }
-        .info-label {
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            margin-bottom: 2px;
-        }
-        .info-value {
-            font-size: 0.92rem;
-            color: var(--cream);
-            font-weight: 500;
-        }
-        .info-card a {
-            text-decoration: none;
-            color: inherit;
-        }
+        .info-label { font-size: 0.72rem; color: var(--text-muted); }
+        .info-value { font-size: 0.9rem; color: var(--cream); font-weight: 500; }
 
-        /* ===== SOCIAL ===== */
-        .social-section {
-            padding: 0 20px 25px;
-        }
-        .section-title {
-            font-size: 0.95rem;
-            color: var(--gold);
-            margin-bottom: 14px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            justify-content: center;
-        }
-        .section-title::before,
-        .section-title::after {
-            content: '';
-            flex: 1;
-            max-width: 50px;
-            height: 1px;
-        }
-        .section-title::before {
-            background: linear-gradient(90deg, var(--gold-dark), transparent);
-        }
-        .section-title::after {
-            background: linear-gradient(90deg, transparent, var(--gold-dark));
-        }
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-        }
+        .social-section { padding: 0 20px 25px; }
+        .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
         .social-btn {
             aspect-ratio: 1;
-            border-radius: 16px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--gold);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             text-decoration: none;
-            transition: all 0.3s ease;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(201, 168, 76, 0.15);
-        }
-        .social-btn:hover, .social-btn:active {
-            background: rgba(201, 168, 76, 0.1);
-            border-color: var(--gold-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(201, 168, 76, 0.15);
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(212,175,55,0.15);
         }
 
-        /* ===== FOOTER ===== */
-        .deco-bottom {
-            position: relative;
-            height: 50px;
-            overflow: hidden;
-            margin-top: 10px;
-        }
-        .deco-bottom::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
-        }
-        .deco-bottom::after {
-            content: '';
-            position: absolute;
-            bottom: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 40px;
-            border: 2px solid var(--gold);
-            border-top: none;
-            border-radius: 0 0 60px 60px;
-            opacity: 0.4;
-        }
         .footer-text {
-            padding: 0 20px 20px;
+            padding: 15px 20px;
             font-size: 0.7rem;
-            color: rgba(201, 168, 76, 0.4);
+            color: rgba(212,175,55,0.4);
             text-align: center;
-        }
-
-        /* ===== NFC BADGE ===== */
-        .nfc-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(201, 168, 76, 0.1);
-            border: 1px solid rgba(201, 168, 76, 0.25);
-            color: var(--gold);
-            padding: 5px 14px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-        .nfc-badge i { font-size: 0.8rem; }
-
-        /* ===== LIGHTBOX ===== */
-        #lightbox {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            inset: 0;
-            background: rgba(5, 10, 13, 0.95);
-            backdrop-filter: blur(15px);
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        #lightbox.open {
-            display: flex;
-            opacity: 1;
-        }
-        #lightbox img {
-            max-width: 92%;
-            max-height: 80%;
-            object-fit: contain;
-            border-radius: 12px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-            transform: scale(0.9);
-            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        #lightbox.open img {
-            transform: scale(1);
-        }
-        #lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: rgba(201, 168, 76, 0.1);
-            border: 1px solid rgba(201, 168, 76, 0.3);
-            color: var(--gold);
-            font-size: 1.2rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-        #lightbox-close:hover {
-            background: rgba(201, 168, 76, 0.25);
-            transform: rotate(90deg);
-        }
-        .lightbox-caption {
-            position: absolute;
-            bottom: 30px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            color: var(--gold-light);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(15px);
-            animation: fadeIn 0.6s ease forwards;
-        }
-        .fade-in:nth-child(1) { animation-delay: 0.2s; }
-        .fade-in:nth-child(2) { animation-delay: 0.35s; }
-        .fade-in:nth-child(3) { animation-delay: 0.5s; }
-        .fade-in:nth-child(4) { animation-delay: 0.65s; }
-        @keyframes fadeIn {
-            to { opacity: 1; transform: translateY(0); }
+            border-top: 1px solid rgba(212,175,55,0.1);
         }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <!-- Deco Top -->
-        <div class="deco-top">
-            <div class="deco-line"></div>
-        </div>
+        <div class="deco-top"></div>
 
-        <!-- Logo -->
         <div class="logo-section">
             <div class="logo-circle">
                 <i class="fa-solid fa-crown crown"></i>
@@ -726,270 +485,169 @@
             <div class="brand-ar">مجوهرات</div>
         </div>
 
-        <!-- NFC Badge -->
-        <div class="nfc-badge">
-            <i class="fa-solid fa-wifi"></i> NFC Enabled
-        </div>
-
-        <!-- Services -->
         <div class="services">
             <div class="service-tag">بيع وشراء</div>
             <div class="service-tag">إصلاح المجوهرات</div>
         </div>
 
-        <!-- ===== LUXURY GALLERY ===== -->
+        <!-- معرض الصور -->
         <div class="gallery-section">
             <div class="gallery-header">
                 <div class="h-line-left"></div>
                 <div class="gallery-header-text">
                     <div class="main">GALLERY</div>
-                    <div class="sub">معرض الأعمال</div>
+                    <div class="sub">معرض الصور</div>
                 </div>
                 <div class="h-line"></div>
             </div>
 
-            <div class="slider-frame">
-                <div class="slider-container" id="slider">
-                    <div class="slide-counter" id="counter">01 / 05</div>
-
-                    <div class="slider-track" id="track">
-                        <div class="slide" onclick="openLightbox(0)">
-                            <img src="img1.jpg" alt="خواتم ذهبية" onerror="this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=600&fit=crop&q=80'">
-                            <div class="slide-overlay">
-                                <div class="cat">Collection</div>
-                                <div class="title">خواتم ذهبية عيار 18</div>
-                                <div class="divider-small"></div>
-                            </div>
-                        </div>
-                        <div class="slide" onclick="openLightbox(1)">
-                            <img src="img2.jpg" alt="أساور فاخرة" onerror="this.src='https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800&h=600&fit=crop&q=80'">
-                            <div class="slide-overlay">
-                                <div class="cat">Collection</div>
-                                <div class="title">أساور فاخرة</div>
-                                <div class="divider-small"></div>
-                            </div>
-                        </div>
-                        <div class="slide" onclick="openLightbox(2)">
-                            <img src="img3.jpg" alt="قلادات وأطقم" onerror="this.src='https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&h=600&fit=crop&q=80'">
-                            <div class="slide-overlay">
-                                <div class="cat">Collection</div>
-                                <div class="title">قلادات وأطقم</div>
-                                <div class="divider-small"></div>
-                            </div>
-                        </div>
-                        <div class="slide" onclick="openLightbox(3)">
-                            <img src="img4.jpg" alt="ساعات راقية" onerror="this.src='https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=800&h=600&fit=crop&q=80'">
-                            <div class="slide-overlay">
-                                <div class="cat">Collection</div>
-                                <div class="title">ساعات راقية</div>
-                                <div class="divider-small"></div>
-                            </div>
-                        </div>
-                        <div class="slide" onclick="openLightbox(4)">
-                            <img src="img5.jpg" alt="تصاميم حسب الطلب" onerror="this.src='https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=600&fit=crop&q=80'">
-                            <div class="slide-overlay">
-                                <div class="cat">Sur Mesure</div>
-                                <div class="title">تصاميم حسب الطلب</div>
-                                <div class="divider-small"></div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="hero-slider">
+                <div class="hero-container" id="heroSlider">
+                    <div class="hero-counter" id="heroCounter">01 / 23</div>
+                    <div class="hero-track" id="heroTrack"></div>
                 </div>
-
-                <button class="slider-arrow prev" onclick="goToSlide(current - 1); event.stopPropagation();">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-                <button class="slider-arrow next" onclick="goToSlide(current + 1); event.stopPropagation();">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
+                <button class="hero-arrow prev" onclick="heroGo(current - 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                <button class="hero-arrow next" onclick="heroGo(current + 1)"><i class="fa-solid fa-chevron-left"></i></button>
             </div>
 
-            <div class="slider-dots" id="dots"></div>
+            <div class="thumb-strip" id="thumbStrip"></div>
+
+            <button class="view-all-btn" onclick="openGalleryModal()">
+                <i class="fa-solid fa-border-all"></i> عرض جميع الصور (23)
+            </button>
         </div>
 
-        <!-- Divider -->
-        <div class="divider">
-            <div class="divider-line"></div>
-            <div class="divider-dot"></div>
-            <div class="divider-line"></div>
+        <div class="action-btns">
+            <a href="tel:0678695214" class="btn btn-gold"><i class="fa-solid fa-phone"></i> اتصل بنا</a>
+            <a href="https://wa.me/2120678695214" target="_blank" class="btn btn-outline"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
         </div>
 
-        <!-- Buttons -->
-        <div class="action-btns fade-in">
-            <a href="tel:0678695214" class="btn btn-gold">
-                <i class="fa-solid fa-phone"></i> اتصل بنا
-            </a>
-            <a href="https://wa.me/2120678695214" target="_blank" class="btn btn-outline">
-                <i class="fa-brands fa-whatsapp"></i> واتساب
-            </a>
-        </div>
-
-        <!-- Info -->
         <div class="info-section">
-            <div class="info-card fade-in">
+            <div class="info-card">
                 <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
-                <div class="info-content">
+                <div>
                     <div class="info-label">العنوان</div>
                     <div class="info-value">صحراء مول الركائن، الطابق تحت الأرضي، محل C47</div>
                 </div>
             </div>
-            <div class="info-card fade-in">
+            <div class="info-card">
                 <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
-                <div class="info-content">
+                <div>
                     <div class="info-label">الهاتف</div>
-                    <a href="tel:0678695214"><div class="info-value">06 78 69 52 14</div></a>
+                    <div class="info-value">06 78 69 52 14</div>
                 </div>
             </div>
         </div>
 
-        <!-- Social -->
         <div class="social-section">
-            <div class="section-title">تابعونا</div>
             <div class="social-grid">
-                <a href="https://www.instagram.com/Y_bijouterie925" target="_blank" class="social-btn" title="Instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://www.facebook.com/Bijouterie925" target="_blank" class="social-btn" title="Facebook">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="https://www.tiktok.com/@bijouterie925" target="_blank" class="social-btn" title="TikTok">
-                    <i class="fa-brands fa-tiktok"></i>
-                </a>
-                <a href="mailto:contact@bijouterie925.ma" class="social-btn" title="Email">
-                    <i class="fa-solid fa-envelope"></i>
-                </a>
+                <a href="https://www.instagram.com/Y_bijouterie925" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/Bijouterie925" target="_blank" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@bijouterie925" target="_blank" class="social-btn"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="mailto:contact@bijouterie925.ma" class="social-btn"><i class="fa-solid fa-envelope"></i></a>
             </div>
         </div>
 
-        <!-- Deco Bottom -->
-        <div class="deco-bottom"></div>
-        <div class="footer-text">
-            © 2026 Bijouterie 925 - جميع الحقوق محفوظة
-        </div>
+        <div class="footer-text">© 2026 Bijouterie 925 - جميع الحقوق محفوظة</div>
     </div>
 
-    <!-- ===== LIGHTBOX ===== -->
+    <div id="galleryModal">
+        <div class="modal-header">
+            <h3>معرض الصور</h3>
+            <button class="modal-close" onclick="closeGalleryModal()">&times;</button>
+        </div>
+        <div class="modal-grid" id="modalGrid"></div>
+    </div>
+
     <div id="lightbox" onclick="closeLightbox(event)">
         <button id="lightbox-close" onclick="closeLightbox(event)">&times;</button>
         <img id="lightbox-img" src="" alt="">
-        <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
 
     <script>
-        // ===== SLIDER =====
-        const track = document.getElementById('track');
-        const dotsContainer = document.getElementById('dots');
-        const counterEl = document.getElementById('counter');
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
+        const images = [];
+        for (let i = 1; i <= 22; i++) {
+            images.push({ full: `ma${i}.jpg`, title: `صورة ${i}` });
+        }
+        images.push({ full: 'mat1.jpg', title: 'صورة مميزة' });
+
+        const total = images.length;
         let current = 0;
-        let startX = 0;
-        let currentX = 0;
-        let isDragging = false;
 
-        const slideData = [
-            { src: 'img1.jpg', fallback: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&h=900&fit=crop&q=80', caption: 'خواتم ذهبية عيار 18' },
-            { src: 'img2.jpg', fallback: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=1200&h=900&fit=crop&q=80', caption: 'أساور فاخرة' },
-            { src: 'img3.jpg', fallback: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=1200&h=900&fit=crop&q=80', caption: 'قلادات وأطقم' },
-            { src: 'img4.jpg', fallback: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=1200&h=900&fit=crop&q=80', caption: 'ساعات راقية' },
-            { src: 'img5.jpg', fallback: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=1200&h=900&fit=crop&q=80', caption: 'تصاميم حسب الطلب' },
-        ];
+        const heroTrack = document.getElementById('heroTrack');
+        const thumbStrip = document.getElementById('thumbStrip');
+        const modalGrid = document.getElementById('modalGrid');
 
-        // Create dots
-        slides.forEach((_, i) => {
-            const dot = document.createElement('button');
-            dot.className = 'dot' + (i === 0 ? ' active' : '');
-            dot.onclick = () => goToSlide(i);
-            dotsContainer.appendChild(dot);
+        images.forEach((img, i) => {
+            // Slide (Lazy Loading)
+            const slide = document.createElement('div');
+            slide.className = 'hero-slide';
+            slide.innerHTML = `<img src="${i === 0 ? img.full : ''}" data-src="${img.full}" loading="lazy" alt="${img.title}">`;
+            slide.onclick = () => openLightbox(i);
+            heroTrack.appendChild(slide);
+
+            // Thumb (Lazy Loading)
+            const thumb = document.createElement('div');
+            thumb.className = 'thumb' + (i === 0 ? ' active' : '');
+            thumb.innerHTML = `<img src="${i < 5 ? img.full : ''}" data-src="${img.full}" loading="lazy" alt="${img.title}">`;
+            thumb.onclick = () => heroGo(i);
+            thumbStrip.appendChild(thumb);
+
+            // Modal Item
+            const item = document.createElement('div');
+            item.className = 'modal-item';
+            item.innerHTML = `<img data-src="${img.full}" loading="lazy" alt="${img.title}">`;
+            item.onclick = () => openLightbox(i);
+            modalGrid.appendChild(item);
         });
 
-        function updateCounter() {
-            counterEl.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(totalSlides).padStart(2, '0');
-        }
-
-        function goToSlide(index) {
-            if (index < 0) index = totalSlides - 1;
-            if (index >= totalSlides) index = 0;
-            current = index;
-            track.style.transform = `translateX(${current * 100}%)`;
-            document.querySelectorAll('.dot').forEach((dot, i) => {
-                dot.classList.toggle('active', i === current);
-            });
-            updateCounter();
-        }
-
-        // Swipe
-        const slider = document.getElementById('slider');
-
-        slider.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            isDragging = true;
-            track.style.transition = 'none';
-        }, { passive: true });
-
-        slider.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            currentX = e.touches[0].clientX;
-            const diff = currentX - startX;
-            const offset = -(current * 100) + (diff / slider.offsetWidth * 100);
-            track.style.transform = `translateX(${offset}%)`;
-        }, { passive: true });
-
-        slider.addEventListener('touchend', (e) => {
-            if (!isDragging) return;
-            isDragging = false;
-            track.style.transition = 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)';
-            const diff = currentX - startX;
-            if (Math.abs(diff) > 50) {
-                diff > 0 ? goToSlide(current - 1) : goToSlide(current + 1);
-            } else {
-                goToSlide(current);
+        function loadRealImage(imgEl) {
+            if (imgEl && imgEl.dataset.src && !imgEl.src) {
+                imgEl.src = imgEl.dataset.src;
             }
-        });
+        }
 
-        // Auto-play
-        let autoPlay = setInterval(() => goToSlide(current + 1), 5000);
-        slider.addEventListener('touchstart', () => clearInterval(autoPlay));
-        slider.addEventListener('touchend', () => {
-            autoPlay = setInterval(() => goToSlide(current + 1), 5000);
-        });
+        function heroGo(index) {
+            if (index < 0) index = total - 1;
+            if (index >= total) index = 0;
+            current = index;
+            heroTrack.style.transform = `translateX(${current * 100}%)`;
 
-        // ===== LIGHTBOX =====
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxCaption = document.getElementById('lightbox-caption');
+            // Load next and previous images dynamically
+            const slides = heroTrack.querySelectorAll('img');
+            loadRealImage(slides[current]);
+            if (slides[current + 1]) loadRealImage(slides[current + 1]);
+            if (slides[current - 1]) loadRealImage(slides[current - 1]);
+
+            document.querySelectorAll('.thumb').forEach((t, i) => {
+                t.classList.toggle('active', i === current);
+                if (i === current) loadRealImage(t.querySelector('img'));
+            });
+
+            document.getElementById('heroCounter').textContent = String(current + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
+        }
+
+        function openGalleryModal() {
+            document.getElementById('galleryModal').classList.add('open');
+            document.querySelectorAll('#modalGrid img').forEach(img => loadRealImage(img));
+        }
+
+        function closeGalleryModal() {
+            document.getElementById('galleryModal').classList.remove('open');
+        }
 
         function openLightbox(index) {
-            const data = slideData[index];
-            const img = new Image();
-            img.src = data.src;
-            img.onload = () => {
-                lightboxImg.src = data.src;
-            };
-            img.onerror = () => {
-                lightboxImg.src = data.fallback;
-            };
-            lightboxImg.src = data.fallback;
-            lightboxCaption.textContent = data.caption;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = images[index].full;
             lightbox.classList.add('open');
-            document.body.style.overflow = 'hidden';
         }
 
         function closeLightbox(e) {
-            if (e && (e.target.id === 'lightbox' || e.target.id === 'lightbox-close')) {
-                lightbox.classList.remove('open');
-                document.body.style.overflow = '';
+            if (e.target.id === 'lightbox' || e.target.id === 'lightbox-close') {
+                document.getElementById('lightbox').classList.remove('open');
             }
         }
-
-        // Prevent zoom
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', function(event) {
-            const now = Date.now();
-            if (now - lastTouchEnd <= 300) event.preventDefault();
-            lastTouchEnd = now;
-        }, false);
     </script>
-
 </body>
 </html>

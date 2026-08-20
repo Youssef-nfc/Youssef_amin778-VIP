@@ -367,6 +367,8 @@
             gap: 14px;
             text-align: right;
             transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
         }
         .info-card:hover {
             background: rgba(201,168,76,0.04);
@@ -395,7 +397,29 @@
             color: var(--cream);
             font-weight: 500;
         }
-        .info-card a { text-decoration: none; color: inherit; }
+
+        /* ===== MAP BUTTON ===== */
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(201,168,76,0.06);
+            border: 1px solid rgba(201,168,76,0.2);
+            color: var(--gold);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .map-btn:hover {
+            background: rgba(201,168,76,0.12);
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
 
         /* ===== SOCIAL ===== */
         .social-section {
@@ -739,21 +763,37 @@
             </a>
         </div>
 
-        <!-- Info -->
+        <!-- ===== INFO SECTION ===== -->
         <div class="info-section">
-            <div class="info-card">
+            <!-- ✅ العنوان + Google Maps -->
+            <a href="https://maps.app.goo.gl/MpAwpsEwH21MdkDi9" target="_blank" class="info-card">
                 <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
                 <div class="info-content">
                     <div class="info-label">العنوان</div>
-                    <div class="info-value">صحراء مول الركائن، الطابق تحت الأرضي، محل C47</div>
+                    <div class="info-value">صحراء مول الركائن، حي الإيمان، الطابق تحت الأرضي، محل C47</div>
                 </div>
-            </div>
-            <div class="info-card">
+            </a>
+            <!-- ✅ الهاتف -->
+            <a href="tel:0678695214" class="info-card">
                 <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
                 <div class="info-content">
                     <div class="info-label">الهاتف</div>
-                    <a href="tel:0678695214"><div class="info-value">06 78 69 52 14</div></a>
+                    <div class="info-value">06 78 69 52 14</div>
                 </div>
+            </a>
+            <!-- ✅ الإيميل -->
+            <a href="mailto:contact@bijouterie925.ma" class="info-card">
+                <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div class="info-content">
+                    <div class="info-label">البريد الإلكتروني</div>
+                    <div class="info-value">contact@bijouterie925.ma</div>
+                </div>
+            </a>
+            <!-- ✅ زر Google Maps -->
+            <div style="text-align: center; margin-top: 4px;">
+                <a href="https://maps.app.goo.gl/MpAwpsEwH21MdkDi9" target="_blank" class="map-btn">
+                    <i class="fa-solid fa-map-location-dot"></i> فتح الموقع على خرائط Google
+                </a>
             </div>
         </div>
 
@@ -803,7 +843,6 @@
 
     <script>
         // ===== IMAGES DATA: غير ma1.jpg حتى ma22.jpg =====
-        // mat1.jpg هو اللوجو - ما داخلش فالمعرض
         const images = [];
         for (let i = 1; i <= 22; i++) {
             images.push({ 

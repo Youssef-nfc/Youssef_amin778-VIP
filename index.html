@@ -1,831 +1,995 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الباقة الذهبية الفاخرة لبطاقات NFC — يوسف الأمين</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bijouterie 925 - بطاقة الأعمال الذكية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;600;700&display=swap');
 
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+        :root {
+            --dark-bg: #142026;
+            --dark-bg-light: #1d2f38;
+            --gold: #c9a84c;
+            --gold-light: #e0c878;
+            --gold-dark: #a0853a;
+            --cream: #f5f0e1;
+            --text-muted: #b8b8b8;
+        }
 
-<!-- FontAwesome v6 -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com"></script>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #0d161b 0%, #142026 50%, #0d161b 100%);
+            display: flex;
+            justify-content: center;
+            padding: 20px 12px;
+            color: var(--cream);
+            position: relative;
+            overflow-x: hidden;
+        }
 
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      fontFamily: {
-        'cinzel': ['Cinzel', 'serif'],
-        'tajawal': ['Tajawal', 'sans-serif'],
-      },
-      colors: {
-        'wood-dark': '#0d0806',
-        'wood-mid': '#180e0a',
-        'wood-light': '#23140d',
-        'gold-primary': '#d4a843',
-        'gold-light': '#f0d78c',
-        'gold-dark': '#b8860b',
-        'champagne': '#f7e7ce',
-      }
-    }
-  }
-}
-</script>
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(201, 168, 76, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(201, 168, 76, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
 
-<style>
-/* ===== GLOBAL ===== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+        .card {
+            background: linear-gradient(180deg, var(--dark-bg) 0%, var(--dark-bg-light) 100%);
+            width: 100%;
+            max-width: 420px;
+            border-radius: 24px;
+            box-shadow:
+                0 25px 60px rgba(0,0,0,0.5),
+                0 0 0 1px rgba(201, 168, 76, 0.15) inset,
+                0 0 40px rgba(201, 168, 76, 0.05) inset;
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: cardAppear 0.9s ease-out;
+        }
 
-body {
-  font-family: 'Tajawal', sans-serif;
-  background: #0d0806;
-  color: #f7e7ce;
-  overflow-x: hidden;
-  min-height: 100vh;
-}
+        @keyframes cardAppear {
+            from { opacity: 0; transform: translateY(30px) scale(0.96); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
 
-/* ===== WOOD TEXTURE OVERLAY ===== */
-.wood-texture {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  background: 
-    radial-gradient(ellipse at 20% 0%, rgba(180, 120, 60, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 100%, rgba(212, 168, 67, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(35, 20, 13, 0.9) 0%, #0d0806 100%);
-  pointer-events: none;
-}
+        /* ===== DECO TOP ===== */
+        .deco-top {
+            position: relative;
+            height: 60px;
+            overflow: hidden;
+        }
+        .deco-top::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+        }
+        .deco-top::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 40px;
+            border: 2px solid var(--gold);
+            border-bottom: none;
+            border-radius: 60px 60px 0 0;
+            opacity: 0.4;
+        }
+        .deco-line {
+            position: absolute;
+            top: 18px;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+        }
 
-.wood-grain {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  opacity: 0.04;
-  background-image: repeating-linear-gradient(
-    90deg,
-    transparent,
-    transparent 2px,
-    rgba(212, 168, 67, 0.3) 2px,
-    rgba(212, 168, 67, 0.3) 3px
-  );
-  pointer-events: none;
-}
+        /* ===== LOGO ===== */
+        .logo-section {
+            padding: 10px 20px 15px;
+            position: relative;
+        }
+        .logo-circle {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 12px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: rgba(201, 168, 76, 0.05);
+            box-shadow: 0 0 30px rgba(201, 168, 76, 0.1);
+        }
+        .logo-circle .crown {
+            font-size: 14px;
+            color: var(--gold);
+            margin-bottom: 2px;
+        }
+        .logo-circle .num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+            letter-spacing: 2px;
+        }
+        .brand-name {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+        .brand-name .line {
+            flex: 1;
+            max-width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-dark));
+        }
+        .brand-name .line-left {
+            background: linear-gradient(90deg, var(--gold-dark), transparent);
+        }
+        .brand-name span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--gold-light);
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+        .brand-name .diamond {
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+        .brand-ar {
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin-top: 4px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
 
-/* ===== GOLD GRADIENTS ===== */
-.gold-text-gradient {
-  background: linear-gradient(135deg, #f0d78c 0%, #d4a843 30%, #b8860b 60%, #f7e7ce 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+        /* ===== SERVICES ===== */
+        .services {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 0 20px;
+            margin: 18px 0 10px;
+            flex-wrap: wrap;
+        }
+        .service-tag {
+            background: rgba(201, 168, 76, 0.08);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            color: var(--gold-light);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 500;
+        }
 
-.gold-bg-gradient {
-  background: linear-gradient(135deg, #f0d78c 0%, #d4a843 40%, #b8860b 80%, #8b6914 100%);
-}
+        /* ===== LUXURY GALLERY ===== */
+        .gallery-section {
+            margin: 28px 0;
+            padding: 0 16px;
+        }
 
-.gold-bg-shimmer {
-  background: linear-gradient(90deg, #b8860b, #f0d78c, #d4a843, #f7e7ce, #b8860b);
-  background-size: 300% 100%;
-  animation: shimmer 4s ease-in-out infinite;
-}
+        .gallery-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            padding: 0 4px;
+        }
+        .gallery-header .h-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold-dark), transparent);
+        }
+        .gallery-header .h-line-left {
+            background: linear-gradient(90deg, transparent, var(--gold-dark));
+        }
+        .gallery-header-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+        .gallery-header-text .main {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            color: var(--gold-light);
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+        .gallery-header-text .sub {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
 
-/* ===== GLASSMORPHISM ===== */
-.glass-panel {
-  background: rgba(24, 14, 10, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(212, 168, 67, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
+        /* Slider Frame */
+        .slider-frame {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow:
+                0 12px 40px rgba(0,0,0,0.4),
+                0 0 0 1px rgba(201, 168, 76, 0.15),
+                inset 0 0 30px rgba(0,0,0,0.2);
+        }
 
-.glass-card {
-  background: rgba(35, 20, 13, 0.55);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 168, 67, 0.15);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
+        .slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            touch-action: pan-y;
+            cursor: grab;
+        }
+        .slider-container:active {
+            cursor: grabbing;
+        }
 
-.glass-card:hover {
-  border-color: rgba(212, 168, 67, 0.5);
-  box-shadow: 0 0 35px rgba(212, 168, 67, 0.2), 0 8px 32px rgba(0, 0, 0, 0.6);
-  transform: translateY(-4px);
-}
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform;
+        }
 
-/* ===== ANIMATIONS ===== */
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
+        .slide {
+            min-width: 100%;
+            position: relative;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+        }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-}
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+        .slide:hover img, .slide:active img {
+            transform: scale(1.05);
+        }
 
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 15px rgba(212, 168, 67, 0.3); }
-  50% { box-shadow: 0 0 30px rgba(212, 168, 67, 0.6); }
-}
+        /* Elegant overlay */
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 50px 20px 18px;
+            background: linear-gradient(transparent 0%, rgba(13, 22, 27, 0.7) 60%, rgba(13, 22, 27, 0.95) 100%);
+            text-align: center;
+            transition: all 0.4s ease;
+        }
 
-.animate-float { animation: float 4s ease-in-out infinite; }
+        .slide-overlay .cat {
+            font-size: 0.68rem;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            opacity: 0.9;
+        }
+        .slide-overlay .title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            color: var(--cream);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .slide-overlay .divider-small {
+            width: 30px;
+            height: 1px;
+            background: var(--gold);
+            margin: 8px auto 0;
+            opacity: 0.6;
+        }
 
-/* ===== MODAL ===== */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(13, 8, 6, 0.88);
-  backdrop-filter: blur(12px);
-  z-index: 100;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
+        /* Arrows - minimal elegant */
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(13, 22, 27, 0.6);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            color: var(--gold-light);
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 3;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+        .slider-frame:hover .slider-arrow,
+        .slider-frame:active .slider-arrow {
+            opacity: 1;
+        }
+        .slider-arrow:hover {
+            background: rgba(201, 168, 76, 0.2);
+            border-color: var(--gold);
+            transform: translateY(-50%) scale(1.1);
+        }
+        .slider-arrow.prev { left: 12px; }
+        .slider-arrow.next { right: 12px; }
 
-.modal-overlay.active {
-  display: flex;
-  opacity: 1;
-}
+        /* Counter */
+        .slide-counter {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: rgba(13, 22, 27, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            color: var(--gold-light);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 2px;
+            z-index: 3;
+        }
 
-.modal-content {
-  background: linear-gradient(145deg, #180e0a, #23140d);
-  border: 1px solid rgba(212, 168, 67, 0.35);
-  border-radius: 24px;
-  max-width: 580px;
-  width: 100%;
-  max-height: 85vh;
-  overflow-y: auto;
-  transform: scale(0.92) translateY(20px);
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7), 0 0 40px rgba(212, 168, 67, 0.15);
-}
+        /* Dots - luxury style */
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 16px;
+        }
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(201, 168, 76, 0.2);
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            padding: 0;
+            position: relative;
+        }
+        .dot::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 1px solid transparent;
+            transition: all 0.4s ease;
+        }
+        .dot.active {
+            background: var(--gold);
+            width: 28px;
+            border-radius: 3px;
+            box-shadow: 0 0 12px rgba(201, 168, 76, 0.4);
+        }
+        .dot.active::after {
+            border-color: rgba(201, 168, 76, 0.3);
+        }
 
-.modal-overlay.active .modal-content {
-  transform: scale(1) translateY(0);
-}
+        /* ===== DIVIDER ===== */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 30px;
+            margin: 22px 0;
+        }
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+        }
+        .divider-dot {
+            width: 5px;
+            height: 5px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(201, 168, 76, 0.4);
+        }
 
-/* ===== SCROLLBAR ===== */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0d0806; }
-::-webkit-scrollbar-thumb { background: #d4a843; border-radius: 3px; }
+        /* ===== BUTTONS ===== */
+        .action-btns {
+            display: flex;
+            gap: 12px;
+            padding: 0 20px;
+            margin-bottom: 22px;
+        }
+        .btn {
+            flex: 1;
+            padding: 14px 10px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.92rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+            color: var(--dark-bg);
+            box-shadow: 0 6px 20px rgba(201, 168, 76, 0.3);
+        }
+        .btn-gold:hover, .btn-gold:active {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(201, 168, 76, 0.45);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--gold);
+            border: 1.5px solid var(--gold-dark);
+        }
+        .btn-outline:hover, .btn-outline:active {
+            background: rgba(201, 168, 76, 0.08);
+            border-color: var(--gold);
+        }
 
-/* ===== BADGES & RINGS ===== */
-.nfc-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 18px;
-  background: rgba(212, 168, 67, 0.12);
-  border: 1px solid rgba(212, 168, 67, 0.35);
-  border-radius: 100px;
-  font-size: 0.8rem;
-}
+        /* ===== INFO CARDS ===== */
+        .info-section {
+            padding: 0 20px;
+            margin-bottom: 22px;
+        }
+        .info-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(201, 168, 76, 0.12);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-align: right;
+            transition: all 0.3s ease;
+        }
+        .info-card:hover {
+            background: rgba(201, 168, 76, 0.05);
+            border-color: rgba(201, 168, 76, 0.25);
+            transform: translateX(-4px);
+        }
+        .info-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: rgba(201, 168, 76, 0.1);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .info-content { flex: 1; }
+        .info-label {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+        .info-value {
+            font-size: 0.92rem;
+            color: var(--cream);
+            font-weight: 500;
+        }
+        .info-card a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-.nfc-badge::before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  background: #d4a843;
-  border-radius: 50%;
-  animation: pulse-glow 2s ease-in-out infinite;
-}
+        /* ===== SOCIAL ===== */
+        .social-section {
+            padding: 0 20px 25px;
+        }
+        .section-title {
+            font-size: 0.95rem;
+            color: var(--gold);
+            margin-bottom: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+        }
+        .section-title::before,
+        .section-title::after {
+            content: '';
+            flex: 1;
+            max-width: 50px;
+            height: 1px;
+        }
+        .section-title::before {
+            background: linear-gradient(90deg, var(--gold-dark), transparent);
+        }
+        .section-title::after {
+            background: linear-gradient(90deg, transparent, var(--gold-dark));
+        }
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+        .social-btn {
+            aspect-ratio: 1;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.4rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(201, 168, 76, 0.15);
+        }
+        .social-btn:hover, .social-btn:active {
+            background: rgba(201, 168, 76, 0.1);
+            border-color: var(--gold-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(201, 168, 76, 0.15);
+        }
 
-.avatar-ring {
-  padding: 4px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #f0d78c, #d4a843, #b8860b);
-}
+        /* ===== FOOTER ===== */
+        .deco-bottom {
+            position: relative;
+            height: 50px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .deco-bottom::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+        }
+        .deco-bottom::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 40px;
+            border: 2px solid var(--gold);
+            border-top: none;
+            border-radius: 0 0 60px 60px;
+            opacity: 0.4;
+        }
+        .footer-text {
+            padding: 0 20px 20px;
+            font-size: 0.7rem;
+            color: rgba(201, 168, 76, 0.4);
+            text-align: center;
+        }
 
-/* ===== BUTTONS ===== */
-.btn-gold {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #d4a843, #b8860b);
-  color: #0d0806;
-  font-weight: 800;
-  transition: all 0.3s ease;
-}
+        /* ===== NFC BADGE ===== */
+        .nfc-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(201, 168, 76, 0.1);
+            border: 1px solid rgba(201, 168, 76, 0.25);
+            color: var(--gold);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .nfc-badge i { font-size: 0.8rem; }
 
-.btn-gold:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(212, 168, 67, 0.4);
-}
+        /* ===== LIGHTBOX ===== */
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background: rgba(5, 10, 13, 0.95);
+            backdrop-filter: blur(15px);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        #lightbox.open {
+            display: flex;
+            opacity: 1;
+        }
+        #lightbox img {
+            max-width: 92%;
+            max-height: 80%;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            transform: scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        #lightbox.open img {
+            transform: scale(1);
+        }
+        #lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(201, 168, 76, 0.1);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            color: var(--gold);
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        #lightbox-close:hover {
+            background: rgba(201, 168, 76, 0.25);
+            transform: rotate(90deg);
+        }
+        .lightbox-caption {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: var(--gold-light);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
 
-.btn-outline-gold {
-  border: 1px solid rgba(212, 168, 67, 0.5);
-  color: #d4a843;
-  background: transparent;
-  transition: all 0.3s ease;
-}
-
-.btn-outline-gold:hover {
-  background: rgba(212, 168, 67, 0.12);
-  border-color: #d4a843;
-}
-
-.social-icon {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 14px;
-  border: 1px solid rgba(212, 168, 67, 0.25);
-  background: rgba(35, 20, 13, 0.7);
-  color: #d4a843;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-}
-
-.social-icon:hover {
-  transform: translateY(-4px);
-  border-color: #d4a843;
-  color: #f0d78c;
-  box-shadow: 0 5px 20px rgba(212, 168, 67, 0.25);
-}
-
-.bundle-icon-wrap {
-  width: 65px;
-  height: 65px;
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, rgba(212, 168, 67, 0.18), rgba(184, 134, 11, 0.1));
-  border: 1px solid rgba(212, 168, 67, 0.3);
-  font-size: 1.6rem;
-  color: #d4a843;
-}
-
-.section-divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(212, 168, 67, 0.4), transparent);
-}
-
-.ltr { direction: ltr; display: inline-block; }
-
-/* Image placeholder styling */
-.img-placeholder {
-  background: rgba(35, 20, 13, 0.6);
-  border: 2px dashed rgba(212, 168, 67, 0.3);
-  transition: all 0.3s ease;
-}
-.img-placeholder:hover {
-  border-color: rgba(212, 168, 67, 0.8);
-  background: rgba(35, 20, 13, 0.8);
-}
-</style>
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(15px);
+            animation: fadeIn 0.6s ease forwards;
+        }
+        .fade-in:nth-child(1) { animation-delay: 0.2s; }
+        .fade-in:nth-child(2) { animation-delay: 0.35s; }
+        .fade-in:nth-child(3) { animation-delay: 0.5s; }
+        .fade-in:nth-child(4) { animation-delay: 0.65s; }
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
 
-<!-- Background -->
-<div class="wood-texture"></div>
-<div class="wood-grain"></div>
+    <div class="card">
+        <!-- Deco Top -->
+        <div class="deco-top">
+            <div class="deco-line"></div>
+        </div>
 
-<div class="relative z-10 min-h-screen flex flex-col justify-between">
-
-  <!-- ===== HERO SECTION ===== -->
-  <header class="pt-8 pb-6 px-4 sm:px-6">
-    <!-- NFC Badge -->
-    <div class="flex justify-center mb-6">
-      <div class="nfc-badge text-gold-primary font-tajawal font-bold">
-        <span>تقنية NFC عالية السرعة — NTAG215</span>
-      </div>
-    </div>
-
-    <!-- Main Profile Card -->
-    <div class="max-w-md mx-auto">
-      <div class="glass-panel rounded-3xl p-8 text-center relative overflow-hidden">
-        <!-- Corner Accents -->
-        <div class="absolute top-3 right-3 w-6 h-6 border-t-2 border-r-2 border-gold-primary/40 rounded-tr-md"></div>
-        <div class="absolute top-3 left-3 w-6 h-6 border-t-2 border-l-2 border-gold-primary/40 rounded-tl-md"></div>
-        <div class="absolute bottom-3 right-3 w-6 h-6 border-b-2 border-r-2 border-gold-primary/40 rounded-br-md"></div>
-        <div class="absolute bottom-3 left-3 w-6 h-6 border-b-2 border-l-2 border-gold-primary/40 rounded-bl-md"></div>
-
-        <!-- Avatar / Logo -->
-        <div class="flex justify-center mb-5">
-          <div class="avatar-ring">
-            <div class="w-28 h-28 rounded-full bg-gradient-to-br from-wood-light to-wood-dark flex items-center justify-center border-4 border-wood-dark shadow-xl">
-              <span class="font-cinzel text-4xl font-bold gold-text-gradient">YE</span>
+        <!-- Logo -->
+        <div class="logo-section">
+            <div class="logo-circle">
+                <i class="fa-solid fa-crown crown"></i>
+                <div class="num">925</div>
             </div>
-          </div>
-        </div>
-
-        <!-- Name & Bio / الشعار -->
-        <h1 class="font-tajawal text-2xl sm:text-3xl font-black gold-text-gradient mb-2 tracking-wide">
-          يوسف الأمين
-        </h1>
-        <p class="text-gold-pale/90 font-tajawal text-sm sm:text-base font-bold mb-1">
-          مستشار الحلول الرقمية وأنظمة NFC الفاخرة
-        </p>
-        <div class="flex items-center justify-center gap-2 text-gold-primary/70 text-xs sm:text-sm mb-6">
-          <i class="fa-solid fa-location-dot"></i>
-          <span>أكادير، المغرب</span>
-        </div>
-
-        <!-- Primary Action Buttons -->
-        <div class="flex flex-col sm:flex-row gap-3 justify-center mb-4">
-          <button onclick="downloadVCard()" class="btn-gold px-6 py-3.5 rounded-xl font-tajawal text-sm flex items-center justify-center gap-2">
-            <i class="fa-solid fa-address-card text-base"></i>
-            <span>حفظ جهة الاتصال</span>
-          </button>
-          <a href="https://wa.me/212776366828" target="_blank" class="btn-outline-gold px-6 py-3.5 rounded-xl font-tajawal font-bold text-sm flex items-center justify-center gap-2">
-            <i class="fa-brands fa-whatsapp text-lg"></i>
-            <span>واتساب مباشر</span>
-          </a>
-        </div>
-
-        <!-- ===== 1. أيقونة بزر عرض الفيديو (تحت اللوغو والشعار) ===== -->
-        <div class="pt-2 border-t border-gold-primary/15">
-          <button onclick="openVideoModal()" class="w-full btn-gold py-3 px-4 rounded-xl font-tajawal text-sm flex items-center justify-center gap-3 shadow-lg">
-            <span class="w-7 h-7 rounded-full bg-wood-dark/40 flex items-center justify-center text-gold-light">
-              <i class="fa-solid fa-play text-xs pr-0.5"></i>
-            </span>
-            <span>عرض الفيديو التقديمي</span>
-          </button>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Contact Info Bar -->
-    <div class="max-w-md mx-auto mt-5">
-      <div class="glass-panel rounded-2xl p-4 flex justify-around items-center">
-        <a href="tel:+212638571166" class="flex items-center gap-2 text-gold-pale/90 hover:text-gold-primary transition-colors text-xs sm:text-sm font-bold">
-          <div class="w-8 h-8 rounded-lg bg-gold-primary/10 flex items-center justify-center">
-            <i class="fa-solid fa-phone text-gold-primary text-xs"></i>
-          </div>
-          <span class="ltr">+212 638-571166</span>
-        </a>
-        <div class="w-px h-6 bg-gold-primary/20"></div>
-        <a href="https://wa.me/212776366828" target="_blank" class="flex items-center gap-2 text-gold-pale/90 hover:text-gold-primary transition-colors text-xs sm:text-sm font-bold">
-          <div class="w-8 h-8 rounded-lg bg-gold-primary/10 flex items-center justify-center">
-            <i class="fa-brands fa-whatsapp text-gold-primary text-xs"></i>
-          </div>
-          <span class="ltr">+212 776-366828</span>
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- ===== 2. قسم الصور البارزة (الصورتان الفارغتان) ===== -->
-  <section class="px-4 sm:px-6 pb-8">
-    <div class="max-w-md mx-auto">
-      <div class="text-center mb-4">
-        <p class="font-cinzel text-xs tracking-[0.2em] text-gold-primary/70 mb-1">FEATURED SHOWCASE</p>
-        <h3 class="font-tajawal text-lg font-bold gold-text-gradient">العروض المميزة</h3>
-        <div class="section-divider mt-2 max-w-[120px] mx-auto"></div>
-      </div>
-
-      <div class="grid grid-cols-2 gap-3">
-        <!-- صورة فارغة 1 -->
-        <div onclick="openGalleryAt(0)" class="img-placeholder aspect-video rounded-2xl flex flex-col items-center justify-center cursor-pointer p-4 text-center group">
-          <i class="fa-regular fa-image text-3xl text-gold-primary/50 group-hover:text-gold-primary group-hover:scale-110 transition-all mb-2"></i>
-          <span class="text-xs text-gold-pale/70 font-bold group-hover:text-gold-light">الصورة الأولى (إعلانية)</span>
-        </div>
-        <!-- صورة فارغة 2 -->
-        <div onclick="openGalleryAt(1)" class="img-placeholder aspect-video rounded-2xl flex flex-col items-center justify-center cursor-pointer p-4 text-center group">
-          <i class="fa-regular fa-image text-3xl text-gold-primary/50 group-hover:text-gold-primary group-hover:scale-110 transition-all mb-2"></i>
-          <span class="text-xs text-gold-pale/70 font-bold group-hover:text-gold-light">الصورة الثانية (إعلانية)</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 3. قسم معرض الصور الـ 10 ===== -->
-  <section class="px-4 sm:px-6 pb-10">
-    <div class="max-w-md mx-auto">
-      <div class="glass-panel rounded-3xl p-6 text-center">
-        <div class="flex items-center justify-between mb-4">
-          <div>
-            <h3 class="font-tajawal text-lg font-bold gold-text-gradient text-right">معرض الصور</h3>
-            <p class="text-[11px] text-gold-pale/60 text-right">استعرض 10 صور عالية الجودة</p>
-          </div>
-          <button onclick="openGalleryAt(0)" class="btn-gold px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
-            <i class="fa-solid fa-images"></i>
-            <span>عرض معرض الصور</span>
-          </button>
-        </div>
-
-        <!-- شبكة المصغرات الـ 10 صور -->
-        <div class="grid grid-cols-5 gap-2 mt-3" id="gallery-thumbnails">
-          <!-- الكود سيوفر 10 بلاصات د الصور اتوماتيكياً عبر JavaScript -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== BUNDLE SHOWCASE ===== -->
-  <section class="px-4 sm:px-6 pb-10">
-    <div class="max-w-lg mx-auto">
-      <div class="text-center mb-8">
-        <p class="font-cinzel text-xs tracking-[0.2em] text-gold-primary/70 mb-1">VIP COLLECTION</p>
-        <h2 class="font-tajawal text-xl sm:text-2xl font-bold gold-text-gradient">
-          باقة الأعمال الذكية والفاخرة
-        </h2>
-        <div class="section-divider mt-3 max-w-[180px] mx-auto"></div>
-      </div>
-
-      <div class="space-y-4">
-        <!-- Card 1 -->
-        <div class="glass-card rounded-2xl p-5 relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-full h-1 gold-bg-shimmer"></div>
-          <div class="flex items-start gap-4">
-            <div class="bundle-icon-wrap flex-shrink-0 animate-float">
-              <i class="fa-solid fa-id-card"></i>
+            <div class="brand-name">
+                <div class="line line-left"></div>
+                <span>Bijouterie</span>
+                <i class="fa-regular fa-gem diamond"></i>
+                <div class="line"></div>
             </div>
-            <div>
-              <div class="flex items-center gap-2 mb-1">
-                <h3 class="font-tajawal font-bold text-gold-light text-base">بطاقة الأعمال الذكية (NFC Card)</h3>
-                <span class="text-[10px] bg-gold-primary/20 text-gold-primary px-2 py-0.5 rounded-full font-bold">فاخرة</span>
-              </div>
-              <p class="text-gold-pale/80 text-xs sm:text-sm leading-relaxed">
-                بطاقة أنيقة بتصميم خاص. بلمسة واحدة على الهاتف تشارك كامل معلوماتك، مواقعك، ووسائل التواصل فورياً.
-              </p>
+            <div class="brand-ar">مجوهرات</div>
+        </div>
+
+        <!-- NFC Badge -->
+        <div class="nfc-badge">
+            <i class="fa-solid fa-wifi"></i> NFC Enabled
+        </div>
+
+        <!-- Services -->
+        <div class="services">
+            <div class="service-tag">بيع وشراء</div>
+            <div class="service-tag">إصلاح المجوهرات</div>
+        </div>
+
+        <!-- ===== LUXURY GALLERY ===== -->
+        <div class="gallery-section">
+            <div class="gallery-header">
+                <div class="h-line-left"></div>
+                <div class="gallery-header-text">
+                    <div class="main">GALLERY</div>
+                    <div class="sub">معرض الأعمال</div>
+                </div>
+                <div class="h-line"></div>
             </div>
-          </div>
-        </div>
 
-        <!-- Card 2 -->
-        <div class="glass-card rounded-2xl p-5 relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-full h-1 gold-bg-shimmer"></div>
-          <div class="flex items-start gap-4">
-            <div class="bundle-icon-wrap flex-shrink-0 animate-float" style="animation-delay: 1s;">
-              <i class="fa-solid fa-gem"></i>
+            <div class="slider-frame">
+                <div class="slider-container" id="slider">
+                    <div class="slide-counter" id="counter">01 / 05</div>
+
+                    <div class="slider-track" id="track">
+                        <div class="slide" onclick="openLightbox(0)">
+                            <img src="img1.jpg" alt="خواتم ذهبية" onerror="this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=600&fit=crop&q=80'">
+                            <div class="slide-overlay">
+                                <div class="cat">Collection</div>
+                                <div class="title">خواتم ذهبية عيار 18</div>
+                                <div class="divider-small"></div>
+                            </div>
+                        </div>
+                        <div class="slide" onclick="openLightbox(1)">
+                            <img src="img2.jpg" alt="أساور فاخرة" onerror="this.src='https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800&h=600&fit=crop&q=80'">
+                            <div class="slide-overlay">
+                                <div class="cat">Collection</div>
+                                <div class="title">أساور فاخرة</div>
+                                <div class="divider-small"></div>
+                            </div>
+                        </div>
+                        <div class="slide" onclick="openLightbox(2)">
+                            <img src="img3.jpg" alt="قلادات وأطقم" onerror="this.src='https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&h=600&fit=crop&q=80'">
+                            <div class="slide-overlay">
+                                <div class="cat">Collection</div>
+                                <div class="title">قلادات وأطقم</div>
+                                <div class="divider-small"></div>
+                            </div>
+                        </div>
+                        <div class="slide" onclick="openLightbox(3)">
+                            <img src="img4.jpg" alt="ساعات راقية" onerror="this.src='https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=800&h=600&fit=crop&q=80'">
+                            <div class="slide-overlay">
+                                <div class="cat">Collection</div>
+                                <div class="title">ساعات راقية</div>
+                                <div class="divider-small"></div>
+                            </div>
+                        </div>
+                        <div class="slide" onclick="openLightbox(4)">
+                            <img src="img5.jpg" alt="تصاميم حسب الطلب" onerror="this.src='https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=600&fit=crop&q=80'">
+                            <div class="slide-overlay">
+                                <div class="cat">Sur Mesure</div>
+                                <div class="title">تصاميم حسب الطلب</div>
+                                <div class="divider-small"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="slider-arrow prev" onclick="goToSlide(current - 1); event.stopPropagation();">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                <button class="slider-arrow next" onclick="goToSlide(current + 1); event.stopPropagation();">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
             </div>
-            <div>
-              <div class="flex items-center gap-2 mb-1">
-                <h3 class="font-tajawal font-bold text-gold-light text-base">السوار والقلادة الذكية</h3>
-                <span class="text-[10px] bg-gold-primary/20 text-gold-primary px-2 py-0.5 rounded-full font-bold">إكسسوار</span>
-              </div>
-              <p class="text-gold-pale/80 text-xs sm:text-sm leading-relaxed">
-                إكسسوارات راقية مزودة برقاقة ذكية، تمكنك من مشاركة ملفك الشخصي في أي وقت وبكل سهولة وأناقة.
-              </p>
+
+            <div class="slider-dots" id="dots"></div>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider">
+            <div class="divider-line"></div>
+            <div class="divider-dot"></div>
+            <div class="divider-line"></div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="action-btns fade-in">
+            <a href="tel:0678695214" class="btn btn-gold">
+                <i class="fa-solid fa-phone"></i> اتصل بنا
+            </a>
+            <a href="https://wa.me/2120678695214" target="_blank" class="btn btn-outline">
+                <i class="fa-brands fa-whatsapp"></i> واتساب
+            </a>
+        </div>
+
+        <!-- Info -->
+        <div class="info-section">
+            <div class="info-card fade-in">
+                <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="info-content">
+                    <div class="info-label">العنوان</div>
+                    <div class="info-value">صحراء مول الركائن، الطابق تحت الأرضي، محل C47</div>
+                </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="glass-card rounded-2xl p-5 relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-full h-1 gold-bg-shimmer"></div>
-          <div class="flex items-start gap-4">
-            <div class="bundle-icon-wrap flex-shrink-0 animate-float" style="animation-delay: 2s;">
-              <i class="fa-solid fa-globe"></i>
+            <div class="info-card fade-in">
+                <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                <div class="info-content">
+                    <div class="info-label">الهاتف</div>
+                    <a href="tel:0678695214"><div class="info-value">06 78 69 52 14</div></a>
+                </div>
             </div>
-            <div>
-              <div class="flex items-center gap-2 mb-1">
-                <h3 class="font-tajawal font-bold text-gold-light text-base">الملف الرقمي التفاعلي</h3>
-                <span class="text-[10px] bg-gold-primary/20 text-gold-primary px-2 py-0.5 rounded-full font-bold">مدى الحياة</span>
-              </div>
-              <p class="text-gold-pale/80 text-xs sm:text-sm leading-relaxed">
-                صفحة هبوط رقمية خاصة بك قابلة للتحديث في أي وقت لتناسب تطور أعمالك بدون الحاجة لتغيير البطاقة.
-              </p>
+        </div>
+
+        <!-- Social -->
+        <div class="social-section">
+            <div class="section-title">تابعونا</div>
+            <div class="social-grid">
+                <a href="https://www.instagram.com/Y_bijouterie925" target="_blank" class="social-btn" title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/Bijouterie925" target="_blank" class="social-btn" title="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://www.tiktok.com/@bijouterie925" target="_blank" class="social-btn" title="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+                <a href="mailto:contact@bijouterie925.ma" class="social-btn" title="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===== CHIP SPECIFICATION ===== -->
-  <section class="px-4 sm:px-6 pb-10">
-    <div class="max-w-lg mx-auto">
-      <div class="glass-panel rounded-2xl p-5 text-center">
-        <div class="inline-flex items-center gap-3 mb-3">
-          <i class="fa-solid fa-microchip text-gold-primary text-2xl"></i>
-          <span class="font-tajawal font-bold text-gold-light text-sm">مواصفات الشريحة الذكية NTAG215</span>
+        <!-- Deco Bottom -->
+        <div class="deco-bottom"></div>
+        <div class="footer-text">
+            © 2026 Bijouterie 925 - جميع الحقوق محفوظة
         </div>
-        <div class="grid grid-cols-3 gap-2 mt-2">
-          <div class="bg-wood-dark/60 rounded-xl p-2.5 border border-gold-primary/15">
-            <p class="font-cinzel text-base font-bold gold-text-gradient">504</p>
-            <p class="text-[10px] text-gold-pale/60 mt-0.5">بايت سعة التخزين</p>
-          </div>
-          <div class="bg-wood-dark/60 rounded-xl p-2.5 border border-gold-primary/15">
-            <p class="font-cinzel text-base font-bold gold-text-gradient">سريعة</p>
-            <p class="text-[10px] text-gold-pale/60 mt-0.5">استجابة فورية</p>
-          </div>
-          <div class="bg-wood-dark/60 rounded-xl p-2.5 border border-gold-primary/15">
-            <p class="font-cinzel text-base font-bold gold-text-gradient">100K</p>
-            <p class="text-[10px] text-gold-pale/60 mt-0.5">مرة إعادة كتابة</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SOCIAL MEDIA ===== -->
-  <section class="px-4 sm:px-6 pb-10">
-    <div class="max-w-lg mx-auto text-center">
-      <p class="font-tajawal text-xs text-gold-primary/70 font-bold mb-4">تابعنا على شبكات التواصل الاجتماعي</p>
-      <div class="flex justify-center gap-4">
-        <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#" class="social-icon" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER NAVIGATION & CREDITS ===== -->
-  <footer class="px-4 pb-8 pt-4 text-center bg-wood-mid/40 border-t border-gold-primary/10">
-    <div class="max-w-md mx-auto">
-      <!-- Nav Links -->
-      <div class="flex justify-center items-center gap-4 sm:gap-6 text-xs text-gold-pale/80 font-bold mb-6">
-        <button onclick="openModal('about')" class="hover:text-gold-primary transition-colors">من نحن</button>
-        <span class="text-gold-primary/30">•</span>
-        <button onclick="openModal('contact')" class="hover:text-gold-primary transition-colors">اتصل بنا</button>
-        <span class="text-gold-primary/30">•</span>
-        <button onclick="openModal('terms')" class="hover:text-gold-primary transition-colors">شروط الاستخدام</button>
-      </div>
-
-      <div class="section-divider max-w-[200px] mx-auto mb-4"></div>
-
-      <p class="font-tajawal text-xs text-gold-pale/60 font-medium">
-        جميع الحقوق محفوظة © 2026 — يوسف الأمين
-      </p>
-      <p class="font-tajawal text-[11px] text-gold-primary/40 mt-1">
-        حلول NFC الرقمية الاحترافية — أكادير، المغرب
-      </p>
-    </div>
-  </footer>
-
-</div>
-
-<!-- ===== MODAL 1: نافذة الفيديو ===== -->
-<div id="modal-video" class="modal-overlay" onclick="closeModalOnOverlay(event, 'video')">
-  <div class="modal-content p-4 sm:p-6 relative">
-    <button onclick="closeModal('video')" class="absolute top-3 left-3 w-8 h-8 rounded-full bg-gold-primary/10 flex items-center justify-center text-gold-primary hover:bg-gold-primary/20 z-10">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-    <h3 class="font-tajawal text-lg font-bold gold-text-gradient mb-3 text-center">الفيديو التقديمي</h3>
-    <!-- مشغل الفيديو -->
-    <div class="aspect-video w-full rounded-2xl overflow-hidden bg-black flex items-center justify-center relative border border-gold-primary/30">
-      <!-- تقدر تبدل هاد الفيديو برابط يوتيوب أو فيديو مباشر mp4 -->
-      <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-  </div>
-</div>
-
-<!-- ===== MODAL 2: معرض الصور التفاعلي (LIGHTBOX / GALLERY) ===== -->
-<div id="modal-gallery" class="modal-overlay" onclick="closeModalOnOverlay(event, 'gallery')">
-  <div class="relative w-full max-w-4xl h-full max-h-[90vh] flex flex-col items-center justify-between p-2 sm:p-4">
-    
-    <!-- شريط التحكم الفوقاني -->
-    <div class="w-full flex justify-between items-center bg-wood-dark/80 backdrop-blur-md p-3 rounded-2xl border border-gold-primary/30 z-20">
-      <span id="gallery-counter" class="font-tajawal text-xs sm:text-sm text-gold-light font-bold">صورة 1 من 10</span>
-      <div class="flex gap-3">
-        <!-- أزرار التكبير Zoom -->
-        <button onclick="zoomImage(0.2)" class="text-gold-primary hover:text-gold-light p-1"><i class="fa-solid fa-magnifying-glass-plus text-base"></i></button>
-        <button onclick="zoomImage(-0.2)" class="text-gold-primary hover:text-gold-light p-1"><i class="fa-solid fa-magnifying-glass-minus text-base"></i></button>
-        <button onclick="resetZoom()" class="text-gold-primary hover:text-gold-light p-1 text-xs font-bold">إعادة</button>
-        <button onclick="closeModal('gallery')" class="text-gold-primary hover:text-gold-light p-1 pr-2"><i class="fa-solid fa-xmark text-lg"></i></button>
-      </div>
     </div>
 
-    <!-- منطقة عرض الصورة الرئيسية -->
-    <div class="relative flex-1 w-full flex items-center justify-center overflow-hidden my-2">
-      <!-- أزرار التنقل بين الصور -->
-      <button onclick="prevImage()" class="absolute right-2 z-20 w-10 h-10 rounded-full bg-wood-dark/70 border border-gold-primary/40 text-gold-primary flex items-center justify-center hover:bg-gold-primary/20">
-        <i class="fa-solid fa-chevron-right"></i>
-      </button>
-      
-      <div class="w-full h-full flex items-center justify-center overflow-auto p-2">
-        <img id="gallery-current-img" src="" alt="معرض الصور" class="max-h-full max-w-full object-contain rounded-xl transition-transform duration-200" style="transform: scale(1);">
-      </div>
-
-      <button onclick="nextImage()" class="absolute left-2 z-20 w-10 h-10 rounded-full bg-wood-dark/70 border border-gold-primary/40 text-gold-primary flex items-center justify-center hover:bg-gold-primary/20">
-        <i class="fa-solid fa-chevron-left"></i>
-      </button>
+    <!-- ===== LIGHTBOX ===== -->
+    <div id="lightbox" onclick="closeLightbox(event)">
+        <button id="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+        <img id="lightbox-img" src="" alt="">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
 
-    <!-- الشريط السفلي للصور المصغرة -->
-    <div class="w-full bg-wood-dark/80 backdrop-blur-md p-2 rounded-2xl border border-gold-primary/30 overflow-x-auto flex gap-2 justify-center" id="gallery-bottom-bar">
-      <!-- يتم ملؤها عبر JavaScript -->
-    </div>
+    <script>
+        // ===== SLIDER =====
+        const track = document.getElementById('track');
+        const dotsContainer = document.getElementById('dots');
+        const counterEl = document.getElementById('counter');
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        let current = 0;
+        let startX = 0;
+        let currentX = 0;
+        let isDragging = false;
 
-  </div>
-</div>
+        const slideData = [
+            { src: 'img1.jpg', fallback: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&h=900&fit=crop&q=80', caption: 'خواتم ذهبية عيار 18' },
+            { src: 'img2.jpg', fallback: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=1200&h=900&fit=crop&q=80', caption: 'أساور فاخرة' },
+            { src: 'img3.jpg', fallback: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=1200&h=900&fit=crop&q=80', caption: 'قلادات وأطقم' },
+            { src: 'img4.jpg', fallback: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=1200&h=900&fit=crop&q=80', caption: 'ساعات راقية' },
+            { src: 'img5.jpg', fallback: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=1200&h=900&fit=crop&q=80', caption: 'تصاميم حسب الطلب' },
+        ];
 
-<!-- باقي النوافذ المنبثقة (من نحن / اتصل بنا / شروط الاستخدام) -->
-<div id="modal-about" class="modal-overlay" onclick="closeModalOnOverlay(event, 'about')">
-  <div class="modal-content p-6 sm:p-8 relative">
-    <button onclick="closeModal('about')" class="absolute top-4 left-4 w-8 h-8 rounded-full bg-gold-primary/10 flex items-center justify-center text-gold-primary hover:bg-gold-primary/20">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-    <div class="text-center mb-6">
-      <div class="w-14 h-14 rounded-2xl gold-bg-gradient flex items-center justify-center mx-auto mb-3 shadow-lg">
-        <i class="fa-solid fa-crown text-wood-dark text-xl"></i>
-      </div>
-      <h3 class="font-tajawal text-xl font-bold gold-text-gradient">من نحن</h3>
-    </div>
-    <div class="space-y-4 text-gold-pale/90 text-sm leading-relaxed font-tajawal text-justify">
-      <p>مرحباً بكم! نحن متخصصون في تقديم أحدث الحلول الرقمية والتقنيات التفاعلية المعتمدة على شرائح NFC بالظهور العصري والفاخر.</p>
-    </div>
-  </div>
-</div>
+        // Create dots
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'dot' + (i === 0 ? ' active' : '');
+            dot.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(dot);
+        });
 
-<div id="modal-contact" class="modal-overlay" onclick="closeModalOnOverlay(event, 'contact')">
-  <div class="modal-content p-6 sm:p-8 relative">
-    <button onclick="closeModal('contact')" class="absolute top-4 left-4 w-8 h-8 rounded-full bg-gold-primary/10 flex items-center justify-center text-gold-primary hover:bg-gold-primary/20">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-    <div class="text-center mb-6">
-      <div class="w-14 h-14 rounded-2xl gold-bg-gradient flex items-center justify-center mx-auto mb-3 shadow-lg">
-        <i class="fa-solid fa-headset text-wood-dark text-xl"></i>
-      </div>
-      <h3 class="font-tajawal text-xl font-bold gold-text-gradient">اتصل بنا</h3>
-    </div>
-    <div class="space-y-3">
-      <a href="https://wa.me/212776366828" target="_blank" class="glass-card rounded-xl p-4 flex items-center gap-4">
-        <div class="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center text-green-400">
-          <i class="fa-brands fa-whatsapp text-lg"></i>
-        </div>
-        <div>
-          <p class="font-tajawal font-bold text-gold-light text-sm">مراسلة عبر الواتساب</p>
-          <p class="text-gold-pale/60 text-xs ltr">+212 776-366828</p>
-        </div>
-      </a>
-    </div>
-  </div>
-</div>
+        function updateCounter() {
+            counterEl.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(totalSlides).padStart(2, '0');
+        }
 
-<div id="modal-terms" class="modal-overlay" onclick="closeModalOnOverlay(event, 'terms')">
-  <div class="modal-content p-6 sm:p-8 relative">
-    <button onclick="closeModal('terms')" class="absolute top-4 left-4 w-8 h-8 rounded-full bg-gold-primary/10 flex items-center justify-center text-gold-primary hover:bg-gold-primary/20">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-    <div class="text-center mb-6">
-      <h3 class="font-tajawal text-xl font-bold gold-text-gradient">شروط الاستخدام والخصوصية</h3>
-    </div>
-    <p class="text-gold-pale/80 text-xs sm:text-sm">جميع البيانات والمعلومات المدخلة حصرية ومحمية بالكامل.</p>
-  </div>
-</div>
+        function goToSlide(index) {
+            if (index < 0) index = totalSlides - 1;
+            if (index >= totalSlides) index = 0;
+            current = index;
+            track.style.transform = `translateX(${current * 100}%)`;
+            document.querySelectorAll('.dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === current);
+            });
+            updateCounter();
+        }
 
-<!-- ===== SCRIPTS ===== -->
-<script>
-// قائمة الـ 10 صور (روابط للتجربة، تقدر تبدلهوم بأي روابط صور بغيتي)
-const galleryImages = [
-  "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
-  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
-  "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800&q=80",
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
-  "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=800&q=80",
-  "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=800&q=80",
-  "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=800&q=80",
-  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
-  "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80"
-];
+        // Swipe
+        const slider = document.getElementById('slider');
 
-let currentImgIndex = 0;
-let currentZoom = 1;
+        slider.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+            track.style.transition = 'none';
+        }, { passive: true });
 
-// توليد مصغرات الصور الـ 10 فالموقع وفي المعرض
-function initGalleryThumbnails() {
-  const container = document.getElementById('gallery-thumbnails');
-  const bottomBar = document.getElementById('gallery-bottom-bar');
-  
-  container.innerHTML = '';
-  bottomBar.innerHTML = '';
+        slider.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            currentX = e.touches[0].clientX;
+            const diff = currentX - startX;
+            const offset = -(current * 100) + (diff / slider.offsetWidth * 100);
+            track.style.transform = `translateX(${offset}%)`;
+        }, { passive: true });
 
-  galleryImages.forEach((imgUrl, index) => {
-    // 1. المصغرات فـ الصفحة
-    const thumb = document.createElement('div');
-    thumb.className = "aspect-square rounded-lg overflow-hidden border border-gold-primary/30 cursor-pointer hover:border-gold-primary hover:scale-105 transition-all";
-    thumb.onclick = () => openGalleryAt(index);
-    thumb.innerHTML = `<img src="${imgUrl}" class="w-full h-full object-cover">`;
-    container.appendChild(thumb);
+        slider.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            track.style.transition = 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)';
+            const diff = currentX - startX;
+            if (Math.abs(diff) > 50) {
+                diff > 0 ? goToSlide(current - 1) : goToSlide(current + 1);
+            } else {
+                goToSlide(current);
+            }
+        });
 
-    // 2. المصغرات فـ المعرض السفلي
-    const barThumb = document.createElement('div');
-    barThumb.className = `w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 cursor-pointer ${index === currentImgIndex ? 'border-gold-primary' : 'border-transparent opacity-60'}`;
-    barThumb.id = `bar-thumb-${index}`;
-    barThumb.onclick = () => showImage(index);
-    barThumb.innerHTML = `<img src="${imgUrl}" class="w-full h-full object-cover">`;
-    bottomBar.appendChild(barThumb);
-  });
-}
+        // Auto-play
+        let autoPlay = setInterval(() => goToSlide(current + 1), 5000);
+        slider.addEventListener('touchstart', () => clearInterval(autoPlay));
+        slider.addEventListener('touchend', () => {
+            autoPlay = setInterval(() => goToSlide(current + 1), 5000);
+        });
 
-function openVideoModal() {
-  openModal('video');
-}
+        // ===== LIGHTBOX =====
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
 
-function openGalleryAt(index) {
-  currentImgIndex = index;
-  openModal('gallery');
-  showImage(index);
-}
+        function openLightbox(index) {
+            const data = slideData[index];
+            const img = new Image();
+            img.src = data.src;
+            img.onload = () => {
+                lightboxImg.src = data.src;
+            };
+            img.onerror = () => {
+                lightboxImg.src = data.fallback;
+            };
+            lightboxImg.src = data.fallback;
+            lightboxCaption.textContent = data.caption;
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
 
-function showImage(index) {
-  currentImgIndex = index;
-  resetZoom();
-  const imgElement = document.getElementById('gallery-current-img');
-  imgElement.src = galleryImages[index];
-  
-  document.getElementById('gallery-counter').innerText = `صورة ${index + 1} من ${galleryImages.length}`;
+        function closeLightbox(e) {
+            if (e && (e.target.id === 'lightbox' || e.target.id === 'lightbox-close')) {
+                lightbox.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        }
 
-  // تحديث الحدود الذهبية للمصغرات فـ الأسفل
-  galleryImages.forEach((_, i) => {
-    const el = document.getElementById(`bar-thumb-${i}`);
-    if(el) {
-      if(i === index) {
-        el.classList.add('border-gold-primary');
-        el.classList.remove('border-transparent', 'opacity-60');
-      } else {
-        el.classList.remove('border-gold-primary');
-        el.classList.add('border-transparent', 'opacity-60');
-      }
-    }
-  });
-}
-
-function nextImage() {
-  currentImgIndex = (currentImgIndex + 1) % galleryImages.length;
-  showImage(currentImgIndex);
-}
-
-function prevImage() {
-  currentImgIndex = (currentImgIndex - 1 + galleryImages.length) % galleryImages.length;
-  showImage(currentImgIndex);
-}
-
-function zoomImage(amount) {
-  currentZoom = Math.max(0.5, Math.min(3, currentZoom + amount));
-  document.getElementById('gallery-current-img').style.transform = `scale(${currentZoom})`;
-}
-
-function resetZoom() {
-  currentZoom = 1;
-  document.getElementById('gallery-current-img').style.transform = `scale(1)`;
-}
-
-// التحكم بالـ Modals
-function openModal(id) {
-  const modal = document.getElementById('modal-' + id);
-  if(modal) {
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-}
-
-function closeModal(id) {
-  const modal = document.getElementById('modal-' + id);
-  if(modal) {
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-}
-
-function closeModalOnOverlay(event, id) {
-  if (event.target === event.currentTarget) {
-    closeModal(id);
-  }
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    document.querySelectorAll('.modal-overlay.active').forEach(modal => {
-      modal.classList.remove('active');
-    });
-    document.body.style.overflow = '';
-  }
-});
-
-function downloadVCard() {
-  const vCardData = [
-    'BEGIN:VCARD',
-    'VERSION:3.0',
-    'FN:يوسف الأمين',
-    'TEL;TYPE=CELL:+212638571166',
-    'END:VCARD'
-  ].join('\n');
-
-  const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = 'Youssef_El_Amyn.vcf';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
-}
-
-// التشغيل عند تحميل الصفحة
-window.onload = function() {
-  initGalleryThumbnails();
-};
-</script>
+        // Prevent zoom
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) event.preventDefault();
+            lastTouchEnd = now;
+        }, false);
+    </script>
 
 </body>
 </html>
-
